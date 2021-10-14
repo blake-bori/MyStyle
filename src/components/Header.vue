@@ -68,29 +68,29 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
                         <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""/></a>
+                            <a href="./main"><img src="img/logo.png" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
-                                <li>
+                                <li :class="{ active: isMenuActive[0] }"><a href="./main">Home</a></li>
+                                <li :class="{ active: isMenuActive[1] }">
                                     <a href="#">Shop</a>
                                     <ul class="dropdown">
-                                        <li><a href="./shop.html">Top</a></li>
-                                        <li><a href="./shop.html">Botyom</a></li>
-                                        <li><a href="./shop.html">Accessories</a></li>
+                                        <li><a href="./shop">Top</a></li>
+                                        <li><a href="./shop">Botyom</a></li>
+                                        <li><a href="./shop">Accessories</a></li>
                                         <!-- <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
                                 </li>
-                                <li>
+                                <li :class="{ active: isMenuActive[2] }">
                                     <a href="#">My Page</a>
                                     <ul class="dropdown">
-                                        <li><a href="./about.html">My Information</a></li>
-                                        <li><a href="./shop-details.html">My Closet</a></li>
-                                        <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                        <li><a href="./my_info">My Information</a></li>
+                                        <li><a href="./my_info">My Closet</a></li>
+                                        <li><a href="./my_info">Shopping Cart</a></li>
                                         <!-- <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
@@ -116,6 +116,27 @@
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            isMenuActive: [true, false, false],
+        };
+    },
+    created() {
+        var link = document.location.href;
+        console.log(link);
+
+        var path = document.location.href.split("/");
+        console.log(path);
+
+        if (path[3].startsWith("main")) {
+            this.isMenuActive = [true, false, false];
+        } else if (path[3].startsWith("shop")||path[3].startsWith("detail")) {
+            this.isMenuActive = [false, true, false];
+        } else if (path[3].startsWith("my_info")) {
+            this.isMenuActive = [false, false, true];
+        }
+    },
+};
 </script>
 <style scoped></style>
