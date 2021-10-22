@@ -4,14 +4,21 @@ import Home from "../views/Home.vue";
 import Shop from "../views/Shop.vue";
 import Detail from "../views/Shop_Detail.vue";
 import MyInfo from "../views/MyInfo.vue";
+import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
     {
-        path: "/main",
+        path: "/",
+        alias: ["/main"],
         name: "Home",
         component: Home,
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
     },
     {
         path: "/shop",
