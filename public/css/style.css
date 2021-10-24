@@ -142,6 +142,16 @@ ol {
     padding-bottom: 100px;
 }
 
+.spad2 {
+    padding-top: 30px;
+    padding-bottom: 0px;
+}
+
+.spad3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .text-white h1,
 .text-white h2,
 .text-white h3,
@@ -2131,6 +2141,7 @@ ol {
     padding-bottom: 70px;
 }
 
+
 .about__pic {
     margin-bottom: 35px;
 }
@@ -2226,6 +2237,11 @@ ol {
 }
 
 .counter .container {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 70px;
+}
+
+.counter .containers {
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: 70px;
 }
@@ -3383,6 +3399,9 @@ button {
     .container {
         max-width: 1170px;
     }
+    .containers {
+        max-width: 1170px;
+    }
 }
 
 /* Medium Device = 1200px */
@@ -3665,6 +3684,9 @@ button {
         display: none;
     }
     .header .container {
+        position: relative;
+    }
+    .header .containers {
         position: relative;
     }
     .header__menu {

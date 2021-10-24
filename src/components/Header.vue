@@ -90,7 +90,7 @@
                                     <ul class="dropdown">
                                         <li><a href="./my_info">My Information</a></li>
                                         <li><a href="./my_info">My Closet</a></li>
-                                        <li><a href="./my_info">Shopping Cart</a></li>
+                                        <li><a href="./shoppingcart">Shopping Cart</a></li>
                                         <!-- <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
