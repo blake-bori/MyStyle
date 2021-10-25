@@ -14,6 +14,7 @@ Vue.use(VueRouter);
 const routes = [
     {
         alias: ["/main"],
+        path:"/",
         name: "Home",
         component: Home,
     },
