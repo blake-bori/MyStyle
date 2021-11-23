@@ -42,7 +42,9 @@
                                     <button type="button" class="site-btn" @click="requestRegister">Next Step</button>
                                 </div>
                             </div>
-                            <canvas class="col-lg-8 col-md-6" style="border: 1px solid black; min-height:400px"></canvas>
+                            <div class="col-lg-8 col-md-6" style="border: 1px solid black; min-height:400px">
+                                <ShowModel />
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -52,7 +54,13 @@
     </div>
 </template>
 <script>
+
+    import ShowModel from './ShowModel.vue'
+
 export default {
+    components : {
+        ShowModel
+    },
     data() {
         return {
             bodySize: {

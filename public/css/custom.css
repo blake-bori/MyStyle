@@ -1,4 +1,4 @@
-.topbottom_text{
+.recommand_text{
     margin-top: 60px;
     text-align: center;
 }
@@ -22,9 +22,22 @@
     font-size: 30px;
 }
 
+.left_arrow2{
+    position: absolute;
+    top: 35%;
+    left: -70px;
+    font-size: 30px;
+}
+
 .right_arrow{
     position: absolute;
     top: 35%;
     right: -30px;
     font-size: 30px;
+}
+
+.threejs{
+    width: 750px;
+    height: 700px;
+    position: relative;
 }
