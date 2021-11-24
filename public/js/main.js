@@ -18,7 +18,6 @@
             $("#preloder")
                 .delay(200)
                 .fadeOut("slow");
-                $(".sliders").slick('slickFilter','.top');
 
             /*------------------
             Gallery filter
@@ -26,17 +25,6 @@
             $(".filter__controls li").on("click", function() {
                 $(".filter__controls li").removeClass("active");
                 $(this).addClass("active");
-
-                var filter = $(this).text();
-                $(".sliders").slick('slickUnfilter');
-                if(filter == 'Top')
-                {
-                    $(".sliders").slick('slickFilter','.top');
-                }
-                else
-                {
-                    $(".sliders").slick('slickFilter','.bottom');
-                }
             });
             if ($(".product__filter").length > 0) {
                 var containerEl = document.querySelector(".product__filter");
