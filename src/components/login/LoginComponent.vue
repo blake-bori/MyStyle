@@ -7,10 +7,11 @@
                     <div class="col-lg-12">
                         <div class="breadcrumb__text">
                             <h2>Login</h2>
-                            <div class="breadcrumb__links">
-                                <a href="./main">Home</a>
-                                <span>Login</span>
-                            </div>
+                            <!-- <div class="breadcrumb__links">
+                            <a href="./index.html">Home</a>
+                            <a href="./shop.html">Shop</a>
+                            <span>Check Out</span>
+                        </div> -->
                         </div>
                     </div>
                 </div>
@@ -55,9 +56,9 @@
                                 <div class="checkout__order">
                                     <h4 class="order__title">Can't Login?</h4>
                                     <div class="checkout__order__products">Create an Account?</div>
-                                    <button type="button" class="site-btn" onclick="location.href='./register'">Register</button>
+                                    <button type="submit" class="site-btn">Register</button>
                                     <div class="checkout__order__products mt-3">Forgot ID or PSW?</div>
-                                    <button type="button" class="site-btn" onclick="location.href='#'">Find ID/PSW</button>
+                                    <button type="submit" class="site-btn">Find ID/PSW</button>
                                 </div>
                             </div>
                         </div>

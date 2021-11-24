@@ -5,9 +5,12 @@ import Shop from "../views/Shop.vue";
 import Detail from "../views/Shop_Detail.vue";
 import MyInfo from "../views/MyInfo.vue";
 import Login from "../views/Login.vue";
+<<<<<<< HEAD
 import Register from "../views/Register.vue";
 import ShoppingCart from "../views/ShoppingCart.vue";
 
+=======
+>>>>>>> parent of 1f61980 (Update Pages)
 
 Vue.use(VueRouter);
 
@@ -22,11 +25,6 @@ const routes = [
         path: "/login",
         name: "Login",
         component: Login,
-    },
-    {
-        path: "/register",
-        name: "Register",
-        component: Register,
     },
     {
         path: "/shop",

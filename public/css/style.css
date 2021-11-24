@@ -2551,7 +2551,7 @@ ol {
 
 .coupon__code {
     color: #0d0d0d;
-    font-size: 16px;
+    font-size: 11px;
     border-top: 2px solid #e1e1e1;
     padding: 23px 0px 18px;
     margin-bottom: 50px;
@@ -2728,7 +2728,6 @@ button {
 }
 
 .checkout__total__products li span {
-    font-size: 12px;
     color: #111111;
     float: right;
 }
