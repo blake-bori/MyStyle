@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 현재 페이지 경로 -->
         <!-- Breadcrumb Section Begin -->
         <section class="breadcrumb-option">
             <div class="container">
@@ -18,6 +19,7 @@
         </section>
         <!-- Breadcrumb Section End -->
 
+        <!-- 로그인 영역 -->
         <!-- Checkout Section Begin -->
         <section class="checkout spad">
             <div class="container">
@@ -49,7 +51,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="coupon__code"></h6>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="checkout__order">
