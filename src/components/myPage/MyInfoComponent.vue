@@ -169,8 +169,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="float-right">더보기</div>
             </div>
-            <div class="mr-5 float-right">더보기</div>
         </section>
         <!-- Team Section End -->
 

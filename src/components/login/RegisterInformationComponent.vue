@@ -28,6 +28,10 @@
                             <div class="col-lg-8 col-md-6">
                                 <h6 class="checkout__title"><span class="icon_contacts_alt"></span> Basic Information</h6>
                                 <div class="checkout__input">
+                                    <p>이름<span>*</span></p>
+                                    <input type="text" />
+                                </div>
+                                <div class="checkout__input">
                                     <p>ID<span>*</span></p>
                                     <input type="text" />
                                 </div>
@@ -45,24 +49,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="checkout__input">
-                                    <p>이름<span>*</span></p>
-                                    <input type="text" />
-                                </div>
-                                <div class="checkout__input">
-                                    <p>닉네임<span>*</span></p>
-                                    <input type="text" />
-                                </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="checkout__order">
                                     <h4 class="order__title">Progress</h4>
                                     <div class="checkout__order__products font-weight-bold">Input <span>Clear?</span></div>
                                     <ul class="checkout__total__products">
+                                        <li>Name <span>No</span></li>
                                         <li>ID <span>No</span></li>
                                         <li>PSW <span>No</span></li>
-                                        <li>Name <span>No</span></li>
-                                        <li>Nickname <span>No</span></li>
                                     </ul>
                                     <div style="height:65px"></div>
                                     <button type="button" class="site-btn" @click="nextStep">Next Step</button>
