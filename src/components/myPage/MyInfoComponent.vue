@@ -8,8 +8,8 @@
                         <div class="breadcrumb__text">
                             <h4>About Us</h4>
                             <div class="breadcrumb__links">
-                                <a href="./index.html">Home</a>
-                                <a href="./index.html">My Page</a>
+                                <a href="./main">Home</a>
+                                <a href="./my_info">My Page</a>
                                 <span>My Information</span>
                             </div>
                         </div>

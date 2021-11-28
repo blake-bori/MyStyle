@@ -39,12 +39,10 @@
                                     <input type="range" class="custom-range mb-4" />
                                     <div class="checkout__order__products font-weight-bold">Body Size-5 <span>70</span></div>
                                     <input type="range" class="custom-range mb-4" />
-                                    <div class="checkout__order__products font-weight-bold">Body Size-6 <span>70</span></div>
-                                    <input type="range" class="custom-range mb-4" />
                                     <button type="button" class="site-btn" @click="requestRegister">Next Step</button>
                                 </div>
                             </div>
-                            <RegisterBodyModelComponent class="col-lg-8 col-md-6"></RegisterBodyModelComponent>
+                            <canvas class="col-lg-8 col-md-6" style="border: 1px solid black; min-height:400px"></canvas>
                         </div>
                     </form>
                 </div>
@@ -54,11 +52,7 @@
     </div>
 </template>
 <script>
-import RegisterBodyModelComponent from "@/components/login/RegisterBodyModelComponent.vue";
 export default {
-    components: {
-        RegisterBodyModelComponent,
-    },
     data() {
         return {
             bodySize: {

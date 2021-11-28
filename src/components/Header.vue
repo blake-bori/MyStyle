@@ -90,7 +90,7 @@
                                     <ul class="dropdown">
                                         <li><a href="./my_info">My Information</a></li>
                                         <li><a href="./my_info">My Closet</a></li>
-                                        <li><a href="./my_info">Shopping Cart</a></li>
+                                        <li><a href="./shopping_cart">Shopping Cart</a></li>
                                         <!-- <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
@@ -103,9 +103,7 @@
                     <div class="col-lg-3 col-md-3">
                         <div class="header__nav__option">
                             <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""/></a>
-                            <a href="#"><img src="img/icon/heart.png" alt=""/></a>
-                            <a href="#"><img src="img/icon/cart.png" alt="" /> <span>0</span></a>
-                            <div class="price">$0.00</div>
+                            <a href="./shopping_cart"><img src="img/icon/heart.png" alt=""/></a>
                         </div>
                     </div>
                 </div>
@@ -124,14 +122,15 @@ export default {
     },
     created() {
         var link = document.location.href;
-        console.log(link);
+        console.log("현재 접속 링크 : " + link);
 
+        // 접속된 링크 : https://도메인/상세주소 -> https, , 도메인, 상세주소로 나눈 배열
         var path = document.location.href.split("/");
-        console.log(path);
 
+        // 배열의 4번째 요소(상세주소)값에 따라 현재 선택된 메뉴목록의 active상태 제어
         if (path[3].startsWith("main")) {
             this.isMenuActive = [true, false, false];
-        } else if (path[3].startsWith("shop")||path[3].startsWith("detail")) {
+        } else if (path[3].startsWith("shop") || path[3].startsWith("detail")) {
             this.isMenuActive = [false, true, false];
         } else if (path[3].startsWith("my_info")) {
             this.isMenuActive = [false, false, true];

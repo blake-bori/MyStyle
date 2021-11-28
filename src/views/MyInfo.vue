@@ -8,7 +8,7 @@
 // @ is an alias to /src
 import MyInfoComponent from "@/components/myPage/MyInfoComponent.vue";
 export default {
-    name: "Home",
+    name: "MyInfo",
     components: {
         MyInfoComponent,
     },

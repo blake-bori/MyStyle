@@ -8,7 +8,7 @@
 // @ is an alias to /src
 import ShoppingCartComponent from "@/components/myPage/ShoppingCartComponent.vue";
 export default {
-    name: "Home",
+    name: "ShoppingCart",
     components: {
         ShoppingCartComponent,
     },

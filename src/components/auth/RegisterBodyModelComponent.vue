@@ -1,9 +1,9 @@
 <template>
     <div class="model-canvas" style="border :1px black solid">
-        <div id="stats"></div>
-        <div id="nav"></div>
+        <!-- <div id="stats"></div>
+        <div id="nav"></div> -->
         <div id="body_model_canvas"></div>
-        <div id="progress-bar"></div>
+        <!-- <div id="progress-bar"></div> -->
     </div>
 </template>
 <script>
@@ -31,13 +31,9 @@ export default {
             })
             .then(() => {
                 // start the app
-                console.log("CCCC");
                 resources.baseUrl = "js/makehuman-data/public/data/";
-                console.log("DDDD");
                 app = new App(resources, modeling_sliders);
-                console.log("EEEE");
                 app.init();
-                console.log("FFFF");
                 app.animate();
             });
     },
