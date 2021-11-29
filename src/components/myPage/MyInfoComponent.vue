@@ -32,11 +32,11 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="about__item">
-                            <h4>XXX님의 정보</h4>
-                            <p>Name : XXX</p>
-                            <p>NickName : xxx</p>
-                            <p>E-Mail : email@email.com</p>
-                            <p>Phone Number : 010-xxx-xxxx</p>
+                            <h4>{{ userName }}님의 정보</h4>
+                            <p>ID : {{ userId }}</p>
+                            <p>Name : {{ userName }}</p>
+                            <p>E-Mail : {{ userEmail }}</p>
+                            <p>Phone Number : {{ userPhoneNum }}</p>
                         </div>
                         <div class="mt-2 float-right">정보 수정하러 가기</div>
                     </div>
@@ -199,8 +199,15 @@
             </div>
         </section>
         <!-- Client Section End -->
-    </div></template
->
+    </div>
+</template>
+
 <script>
-export default {};
+export default {
+    props: { userId: String, userName: String, userEmail: String, userPhoneNum: String },
+
+    data() {
+        return {};
+    },
+};
 </script>

@@ -8,8 +8,6 @@ import ShoppingCart from "../views/ShoppingCart.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 
-import Test from "../views/AxiosTest.vue";
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -49,11 +47,6 @@ const routes = [
         path: "/shopping_cart",
         name: "ShoppingCart",
         component: ShoppingCart,
-    },
-    {
-        path: "/test",
-        name: "Test",
-        component: Test,
     },
     // {
     //   path: '/about',

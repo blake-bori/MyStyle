@@ -26,11 +26,11 @@ export default {
             this.userPsw = inputData[1];
             authApi
                 .login(this.userId, this.userPsw)
-                // 로그인 성공 시
+                // 로그인 결과
                 // isSuccess, code, message, result{jwt, userIdx}
-                // 할일 : vuex를 사용해서 로그인 성공 시 userIdx를 저장시키도록 수정
+                // 할일 : vuex를 사용해서 로그인 성공 시(isSuccess가 true라면) userIdx를 저장시키도록 수정
                 .then((response) => {
-                    console.log("결과 : " + response.data.message);
+                    console.log("로그인 결과 : " + response.data.message);
                 })
                 // 에러 발생 시 (예: 서버 닫힘)
                 .catch((error) => {
