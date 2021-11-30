@@ -59,11 +59,11 @@
                                             <div class="card-body">
                                                 <div class="shop__sidebar__categories">
                                                     <ul class="nice-scroll">
-                                                        <li><a href="#">Men (20)</a></li>
-                                                        <li><a href="#">Women (20)</a></li>
-                                                        <li><a href="#">Top (20)</a></li>
-                                                        <li><a href="#">Bottom (20)</a></li>
-                                                        <li><a href="#">Accessories (20)</a></li>
+                                                        <li><a @click="filtering('Men')">Men (20)</a></li>
+                                                        <li><a @click="filtering('Women')">Women (20)</a></li>
+                                                        <li><a @click="filtering('Top')">Top (20)</a></li>
+                                                        <li><a @click="filtering('Bottom')">Bottom (20)</a></li>
+                                                        <li><a @click="filtering('Accessories')">Accessories (20)</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -237,13 +237,13 @@
                                     <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
                                         <ul class="product__hover">
                                             <li>
-                                                <a href="#"><img src="img/icon/heart.png" alt=""/><span>찜하기</span></a>
+                                                <a href="#"><img src="img/icon/heart.png" alt="" /><span>찜하기</span></a>
                                             </li>
                                             <li>
                                                 <a href="#"><img src="img/icon/compare.png" alt="" /><span>비교하기</span></a>
                                             </li>
                                             <li>
-                                                <a href="./detail"><img src="img/icon/search.png" alt=""/><span>자세히</span></a>
+                                                <a href="./detail"><img src="img/icon/search.png" alt="" /><span>자세히</span></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -733,8 +733,19 @@
             </div>
         </section>
         <!-- Shop Section End -->
-    </div></template
->
+    </div>
+</template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            //언제 불리는건지??
+        };
+    },
+    methods: {
+        filtering(filter) {
+            this.$emit("requestFilter", filter);
+        },
+    },
+};
 </script>

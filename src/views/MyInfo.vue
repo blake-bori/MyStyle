@@ -16,7 +16,7 @@ export default {
     },
     data() {
         return {
-            userIdx: 3333,
+            userIdx: 3,
             userName: "",
             userId: "",
             userEmail: "",

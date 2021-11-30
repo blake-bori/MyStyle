@@ -1,7 +1,7 @@
 import http from "./http";
 
 export async function login(userId, userPsw) {
-    return http.post("/login", { userId: userId, password: userPsw });
+    return http.post("/app/users/login", { userId: userId, password: userPsw });
 }
 
 export async function register(userId, userPsw, userName, userBodySize) {
@@ -11,7 +11,7 @@ export async function register(userId, userPsw, userName, userBodySize) {
     var proportions = userBodySize.proportions;
     var muscle = userBodySize.muscle;
 
-    return http.post("/", {
+    return http.post("/app/users/", {
         userId: userId,
         password: userPsw,
         userName: userName,
@@ -24,5 +24,5 @@ export async function register(userId, userPsw, userName, userBodySize) {
 }
 
 export async function myInfo(userIdx) {
-    return http.get("/" + userIdx);
+    return http.get("/app/users/" + userIdx);
 }

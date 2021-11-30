@@ -1265,6 +1265,7 @@ ol {
 .shop__sidebar__categories ul li a:hover,
 .shop__sidebar__price ul li a:hover,
 .shop__sidebar__brand ul li a:hover {
+    cursor: pointer;
     color: #111111;
 }
 

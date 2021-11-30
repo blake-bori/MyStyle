@@ -95,19 +95,19 @@
                                         <span>Size:</span>
                                         <label for="xxl"
                                             >xxl
-                                            <input type="radio" id="xxl" />
+                                            <input type="radio" id="xxl" v-model="clothSizeValues" value="xxl" />
                                         </label>
                                         <label class="active" for="xl"
                                             >xl
-                                            <input type="radio" id="xl" />
+                                            <input type="radio" id="xl" v-model="clothSizeValues" value="xl" />
                                         </label>
                                         <label for="l"
                                             >l
-                                            <input type="radio" id="l" />
+                                            <input type="radio" id="l" v-model="clothSizeValues" value="l" />
                                         </label>
                                         <label for="sm"
                                             >s
-                                            <input type="radio" id="sm" />
+                                            <input type="radio" id="sm" v-model="clothSizeValues" value="S" />
                                         </label>
                                     </div>
                                     <div class="product__details__option__color">
@@ -135,13 +135,13 @@
                                             <input type="text" value="1" />
                                         </div>
                                     </div>
-                                    <a href="#" class="primary-btn">add to cart</a>
+                                    <a href="#" @click="requestCart(3, 3)" class="primary-btn">add to cart</a>
                                 </div>
-                                <div class="product__details__btns__option">
-                                    <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                                    <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
+                                <div>
+                                    <a href="#" @click="requestBuy(3, 3)" class="primary-btn">Buy now</a>
                                 </div>
                                 <div class="product__details__last__option">
+                                    <br />
                                     <h5><span>Guaranteed Safe Checkout</span></h5>
                                     <img src="img/shop-details/details-payment.png" alt="" />
                                     <ul>
@@ -441,6 +441,24 @@
         <!-- Related Section End -->
     </div>
 </template>
+
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            userId: "",
+            clothId: "",
+            clothSizeValues: "",
+        };
+    },
+
+    methods: {
+        requestCart(userId, clothId) {
+            this.$emit("requestCart", [userId, clothId, this.clothSizeValues]);
+        },
+        requestBuy(userId, clothId) {
+            this.$emit("requestBuy", [userId, clothId, this.clothSizeValues]);
+        },
+    },
+};
 </script>
