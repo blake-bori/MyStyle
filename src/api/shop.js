@@ -2,7 +2,7 @@ import http from "./http";
 
 // 홈화면 렌더시 인기상품&추천상품 리스트(정보) 가져옴
 export async function homeContent() {
-    return http.get("/app/shop/main?sort=");
+    return http.get("/app/shop/main?sort=0");
 }
 
 // 쇼핑화면 렌더시 상품들 리스트(정보) 가져옴
@@ -17,8 +17,8 @@ export async function shopFilterContent(filter) {
 
 // 상품화면 렌더시 상품 정보를 가져옴
 // 유저 정보는 왜 쓰이는 거지???
-export async function openDetail(clothId, userId) {
-    return http.get("/app/shop/clothes/" + clothId + "/" + userId);
+export async function openDetail(clothId) {
+    return http.get("/app/shop/clothes/" + clothId);
 }
 
 // 상품화면에서 찜하기 버튼 클릭시 유저정보 데이터베이스에 찜한 상품 목록이 추가됨

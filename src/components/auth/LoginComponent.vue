@@ -80,7 +80,7 @@ export default {
     },
     methods: {
         requestLogin() {
-            this.$emit("requestLogin", [this.inputId, this.inputPsw]);
+            this.$store.dispatch("requestLogin", [this.inputId, this.inputPsw]);
         },
     },
 };

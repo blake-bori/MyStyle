@@ -32,11 +32,11 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="about__item">
-                            <h4>{{ userName }}님의 정보</h4>
-                            <p>ID : {{ userId }}</p>
-                            <p>Name : {{ userName }}</p>
-                            <p>E-Mail : {{ userEmail }}</p>
-                            <p>Phone Number : {{ userPhoneNum }}</p>
+                            <h4>{{ myInfoData.userName }}님의 정보</h4>
+                            <p>ID : {{ myInfoData.userId }}</p>
+                            <p>Name : {{ myInfoData.userName }}</p>
+                            <p>E-Mail : {{ myInfoData.userEmail }}</p>
+                            <p>Phone Number : {{ myInfoData.userPhoneNum }}</p>
                         </div>
                         <div class="mt-2 float-right">정보 수정하러 가기</div>
                     </div>
@@ -204,10 +204,10 @@
 
 <script>
 export default {
-    props: { userId: String, userName: String, userEmail: String, userPhoneNum: String },
-
-    data() {
-        return {};
+    computed: {
+        myInfoData() {
+            return this.$store.state.user.user;
+        },
     },
 };
 </script>

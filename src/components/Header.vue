@@ -10,7 +10,8 @@
         <div class="offcanvas-menu-wrapper">
             <div class="offcanvas__option">
                 <div class="offcanvas__links">
-                    <a href="./login">Sign in</a>
+                    <a v-show="user.userIdx == -1" href="./login">Sign in</a>
+                    <a v-show="user.userIdx != -1" @click="requestSignOut" href="#">Sign out</a>
                     <a href="#">FAQs</a>
                 </div>
                 <!-- <div class="offcanvas__top__hover">
@@ -30,7 +31,7 @@
             </div>
             <div id="mobile-menu-wrap"></div>
             <div class="offcanvas__text">
-                <p>XXX, Welcom to My Style</p>
+                <p>{{ user.userName }}님, My Style에 오신걸 환영합니다.</p>
             </div>
         </div>
         <!-- Offcanvas Menu End -->
@@ -42,13 +43,14 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-7">
                             <div class="header__top__left">
-                                <p>XXX, Welcom to My Style</p>
+                                <p>{{ user.userName }}님, My Style에 오신걸 환영합니다.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-5">
                             <div class="header__top__right">
                                 <div class="header__top__links">
-                                    <a href="./login">Sign in</a>
+                                    <a v-show="user.userIdx == -1" href="./login">Sign in</a>
+                                    <a v-show="user.userIdx != -1" @click="requestSignOut" href="#">Sign out</a>
                                     <a href="#">FAQs</a>
                                 </div>
                                 <!-- <div class="header__top__hover">
@@ -120,21 +122,32 @@ export default {
             isMenuActive: [true, false, false],
         };
     },
-    created() {
+    computed: {
+        user() {
+            return this.$store.state.user.user;
+        },
+    },
+    mounted() {
         var link = document.location.href;
         console.log("현재 접속 링크 : " + link);
+        console.log("현재 userIdx : " + this.user.userIdx);
 
         // 접속된 링크 : https://도메인/상세주소 -> https, , 도메인, 상세주소로 나눈 배열
         var path = document.location.href.split("/");
 
         // 배열의 4번째 요소(상세주소)값에 따라 현재 선택된 메뉴목록의 active상태 제어
-        if (path[3].startsWith("main")) {
-            this.isMenuActive = [true, false, false];
-        } else if (path[3].startsWith("shop") || path[3].startsWith("detail")) {
+        if (path[3].startsWith("shop") || path[3].startsWith("detail")) {
             this.isMenuActive = [false, true, false];
         } else if (path[3].startsWith("my_info")) {
             this.isMenuActive = [false, false, true];
+        } else {
+            this.isMenuActive = [true, false, false];
         }
+    },
+    methods: {
+        requestSignOut() {
+            this.$store.commit("requestLogout");
+        },
     },
 };
 </script>

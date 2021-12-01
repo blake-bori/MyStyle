@@ -22,7 +22,7 @@ export default {
                 console.log("message : " + response.data.message);
                 console.log("상품");
                 for (var r of response.data.result) {
-                    console.log(r.name);
+                    console.log(r.idx + " : " + r.name);
                 }
                 console.log("isSuccess : " + response.data.isSuccess);
                 console.log("code : " + response.data.code);
@@ -35,6 +35,7 @@ export default {
     methods: {
         filter(inputFilter) {
             this.category = inputFilter;
+            console.log("카테고리 : ", this.category);
             shopApi
                 .shopFilterContent(this.category)
 
@@ -43,8 +44,8 @@ export default {
                     console.log("message : " + response.data.message);
                     console.log("상품");
                     for (var r of response.data.result) {
-                    console.log(r.name);
-                }
+                        console.log(r.idx + " : " + r.name);
+                    }
                     console.log("isSuccess : " + response.data.isSuccess);
                     console.log("code : " + response.data.code);
                     //console.log("카테고리 : " + this.category);

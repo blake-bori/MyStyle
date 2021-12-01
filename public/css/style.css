@@ -1661,7 +1661,7 @@ ol {
 
 .product__details__option__size {
     display: inline-block;
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 
 .product__details__option__size span {
