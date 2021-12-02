@@ -12,5 +12,8 @@ export default {
     components: {
         ShoppingCartComponent,
     },
+    mounted() {
+        this.$store.dispatch("getHeartData", this.$store.state.user.user.userIdx);
+    },
 };
 </script>

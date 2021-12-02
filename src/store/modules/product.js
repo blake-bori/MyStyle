@@ -1,4 +1,5 @@
 import * as shopApi from "@/api/shop";
+import * as authApi from "@/api/auth";
 
 export default {
     // state는 data와 같음
@@ -7,8 +8,15 @@ export default {
         //홈화면의 인기&추천 상품 목록 데이터
         // {idx, imgUrl, name, price}
         homeProducts: [],
-        // {clothes:{clothesIdx, name, price, imgUrl, description, model, isHeart}, size:{sizeIdx, sizeName}}
+        // 쇼핑화면의 상품 목록 데이터
+        shopProducts: [],
+        // 상품에 대한 정보 - {clothes:{clothesIdx, name, price, imgUrl, description, model, isHeart}, size:{sizeIdx, sizeName}}
         productData: null,
+        // 찜 목록에 저장된 데이터
+        heartTopData: null,
+        heartBottomData: null,
+        // 관련 상품 데이터
+        relateData: null,
     }),
     // getter는 computed와 같음
     // this.$store.state.변수명으로 state에 접근해서 사용
@@ -26,6 +34,15 @@ export default {
                 state.homeProducts.push(product);
             }
             console.log(state.homeProducts.length + "개의 상품 정보 Load");
+        },
+        addShopData(state, shopProductList) {
+            console.log("mutation - addShopData 실행");
+            state.shopProducts = [];
+
+            for (var product of shopProductList) {
+                state.shopProducts.push(product);
+            }
+            console.log(state.shopProducts.length + "개의 상품 정보 Load");
         },
         addProductData(state, productData) {
             console.log("mutation - addProductData 실행");
@@ -58,10 +75,19 @@ export default {
                 location.href = "./login";
             }
         },
+        addMyHeart(state, data) {
+            console.log("mutation - addMyHeart 실행");
+            state.heartTopData = data.top;
+            state.heartBottomData = data.bottom;
+            state.relateData = data.recommend;
+
+            console.log("상하의&관련 상품 정보 Load");
+        },
     },
     // actions는 async methods(비동기)와 같다
     // this.$store.dispatch("함수명")
     actions: {
+        // 홈 화면의 인기&추천 상품 정보 리스트 서버로부터 get방식으로 가져오기
         getHomeData(context) {
             console.log("action - getHomeData 실행");
             shopApi
@@ -79,6 +105,45 @@ export default {
                     console.log("에러" + error);
                 });
         },
+        // 쇼핑 화면의 상품 정보 리스트 서버로부터 get방식으로 가져오기
+        getShopData(context) {
+            console.log("action - getShopData 실행");
+            shopApi
+                .shopContent()
+                // 로드 성공 시
+                .then((response) => {
+                    console.log("결과 : " + response.data.message);
+                    console.log("성공여부 : " + response.data.isSuccess);
+                    console.log("코드 : " + response.data.code);
+
+                    context.commit("addShopData", response.data.result);
+                })
+                //에러 발생 시
+                .catch((error) => {
+                    console.log("에러" + error);
+                });
+        },
+        // 쇼핑 화면의 상품을 필터에 맞게 적용
+        getFilterData(context, filter) {
+            console.log("action - filterProduct 실행");
+            console.log("카테고리 : ", filter);
+            shopApi
+                .shopFilterContent(filter)
+
+                // 필터링 성공 시
+                .then((response) => {
+                    console.log("결과 : " + response.data.message);
+                    console.log("성공여부 : " + response.data.isSuccess);
+                    console.log("코드 : " + response.data.code);
+
+                    context.commit("addShopData", response.data.result);
+                })
+                // 에러 발생 시 (예: 서버 닫힘)
+                .catch((error) => {
+                    console.log("에러 : " + error);
+                });
+        },
+        // 상품 화면의 상품 정보 서버로부터 get방식으로 가져오기
         getProductData(context, value) {
             console.log("action - getProductData 실행");
             console.log(value);
@@ -127,6 +192,33 @@ export default {
                     context.commit("purchaseResult", response.data);
                 })
                 // 에러 발생 시
+                .catch((error) => {
+                    console.log("에러 : " + error);
+                });
+        },
+        getHeartData(context, userIdx) {
+            console.log("action - getHeartData 실행");
+            authApi
+                .myHeart(userIdx)
+                // 마이페이지 정보 가져오기
+                // isSuccess, code, message, result[{idx, userName, userId, email, phoneNum}] => 배열임
+                // 할일 : email, phoneNume 정보 없애거나 회원가입 정보에 추가하기(없애는게 나을듯)
+                .then((response) => {
+                    console.log("마이페이지 가져오기 결과 : " + response.data.message);
+                    if (response.data.isSuccess) {
+                        console.log("결과 : " + response.data.message);
+                        console.log("성공여부 : " + response.data.isSuccess);
+                        console.log("코드 : " + response.data.code);
+
+                        context.commit("addMyHeart", response.data.result);
+                    } else {
+                        // 로그인이 안되어있다면 로그인 필요하다는 알림과 함께 로그인 페이지로 이동
+                        console.log("찜 목록 페이지 가져오기 실패");
+                        alert("로그인 필요");
+                        location.href = "./login";
+                    }
+                })
+                // 에러 발생 시 (예: 서버 닫힘)
                 .catch((error) => {
                     console.log("에러 : " + error);
                 });

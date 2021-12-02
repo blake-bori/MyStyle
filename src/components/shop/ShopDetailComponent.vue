@@ -103,7 +103,6 @@
                                             s
                                             <input type="radio" id="s" v-model="clothSizeValues" value="s" />
                                         </label>
-                                        {{ clothSizeValues }}
                                     </div>
                                     <!-- <div class="product__details__option__color">
                                         <span>Color:</span>

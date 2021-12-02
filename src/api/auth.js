@@ -26,3 +26,7 @@ export async function register(userId, userPsw, userName, userBodySize) {
 export async function myInfo(userIdx) {
     return http.get("/app/users/" + userIdx);
 }
+
+export async function myHeart(userIdx) {
+    return http.get("/app/users/" + userIdx + "/heart");
+}

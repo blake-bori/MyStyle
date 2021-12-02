@@ -9,7 +9,7 @@ export default {
             userIdx: -1,
             userId: "",
             password: "",
-            userName: "비회원",
+            userName: "익명의 손",
             userEmail: "",
             userPhoneNum: "",
         },
@@ -33,6 +33,7 @@ export default {
             if (data.isSuccess) {
                 alert("로그인 성공");
                 state.user.userIdx = data.result.userId;
+                state.user.userIdx = 3;
                 location.href = "./";
             } else {
                 alert("로그인 실패");
@@ -44,7 +45,7 @@ export default {
                 userIdx: -1,
                 userId: "",
                 password: "",
-                userName: "비회원",
+                userName: "익명의 손",
             };
             alert("로그아웃");
             location.href = "./";
@@ -102,5 +103,32 @@ export default {
                     console.log("에러 : " + error);
                 });
         },
+        // getShoppingCart(context, userIdx) {
+        //     authApi
+        //         .myInfo(userIdx)
+        //         // 마이페이지 정보 가져오기
+        //         // isSuccess, code, message, result[{idx, userName, userId, email, phoneNum}] => 배열임
+        //         // 할일 : email, phoneNume 정보 없애거나 회원가입 정보에 추가하기(없애는게 나을듯)
+        //         .then((response) => {
+        //             console.log("마이페이지 가져오기 결과 : " + response.data.message);
+        //             if (response.data.isSuccess) {
+        //                 this.userName = response.data.result[0].userName;
+        //                 this.userId = response.data.result[0].userId;
+        //                 this.userEmail = response.data.result[0].email;
+        //                 this.userPhoneNum = response.data.result[0].phoneNum;
+
+        //                 context.commit("addMyInfoData", response.data.result[0]);
+        //             } else {
+        //                 // 로그인이 안되어있다면 로그인 필요하다는 알림과 함께 로그인 페이지로 이동
+        //                 console.log("마이페이지 가져오기 실패");
+        //                 alert("로그인 필요");
+        //                 location.href = "./login";
+        //             }
+        //         })
+        //         // 에러 발생 시 (예: 서버 닫힘)
+        //         .catch((error) => {
+        //             console.log("에러 : " + error);
+        //         });
+        // },
     },
 };
