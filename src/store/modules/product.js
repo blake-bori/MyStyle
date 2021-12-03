@@ -48,13 +48,8 @@ export default {
             console.log("mutation - addProductData 실행");
             state.productData = productData;
             // 할일 : 서버로부터 받아온 obj파일이 CORS에 위배되어 오류 -> 해결방안 모색
-            state.productData.clothes.model = "object/human/test.obj";
-            // state.productData.size = [
-            //     { sizeIdx: 1, sizeName: "S" },
-            //     { sizeIdx: 2, sizeName: "M" },
-            //     { sizeIdx: 3, sizeName: "L" },
-            //     { sizeIdx: 4, sizeName: "XL" },
-            // ];
+            // state.productData.clothes.model = "object/human/test.obj";
+
             console.log(state.productData.clothes.name + "상품 정보 Load");
         },
         addCartResult(state, data) {
@@ -202,7 +197,6 @@ export default {
                 .myHeart(userIdx)
                 // 마이페이지 정보 가져오기
                 // isSuccess, code, message, result[{idx, userName, userId, email, phoneNum}] => 배열임
-                // 할일 : email, phoneNume 정보 없애거나 회원가입 정보에 추가하기(없애는게 나을듯)
                 .then((response) => {
                     console.log("마이페이지 가져오기 결과 : " + response.data.message);
                     if (response.data.isSuccess) {

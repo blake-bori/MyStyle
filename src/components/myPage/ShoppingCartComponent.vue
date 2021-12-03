@@ -603,13 +603,14 @@
 
         <!-- Modeling Canvas -->
         <div style="text-align:center; margin-bottom: 10px;">
-            <div class="col-lg-8 col-md-6" style="display:inline-block; border: 1px solid black; width:600px; height:600px">
+            <div class="col-lg-8 col-md-6" style="display:inline-block; border: 1px solid black; height:600px">
                 <ModelShow />
             </div>
         </div>
 
+        <!-- 추천 상품 리스트 - 미구현 -->
         <!-- Image Slider 3 Start -->
-        <div class="recommand_text">
+        <!-- <div class="recommand_text">
             <h5 style="font-size:25px;">Recommand</h5>
         </div>
         <section class="spad3">
@@ -625,7 +626,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Image Slider 3 End -->
     </div>
 </template>
@@ -665,3 +666,4 @@ export default {
     },
 };
 </script>
+

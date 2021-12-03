@@ -64,7 +64,7 @@
                             </div>
                             <div class="banner__item__text">
                                 <h2>이번 달 인기 상품</h2>
-                                <a href="#">바로 가기</a>
+                                <a href="./shop">바로 가기</a>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="banner__item__text">
                                 <h2>카테고리별 인기 상품</h2>
-                                <a href="#">바로 가기</a>
+                                <a href="./shop">바로 가기</a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="banner__item__text">
                                 <h2>사용자 추천 상품</h2>
-                                <a href="#">바로 가기</a>
+                                <a href="./shop">바로 가기</a>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                     <!-- new-arrivals, hot-sales를 구분하기 위한 class -->
                     <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals"> -->
                     <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales"> -->
-                    <div v-for="product in homeProductList" :key="product.idx" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                    <div v-for="product in homeProductList" :key="product.idx" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix" :class="{ isHot: 'hot-sales' }">
                         <!-- class에 sale넣으면 검정 라벨 흰글씨, 안넣으면 흰 라벨 검정글씨 -->
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" :style="{ backgroundImage: 'url(' + product.imgUrl + ')' }">

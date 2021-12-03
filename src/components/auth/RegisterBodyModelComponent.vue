@@ -11,6 +11,7 @@ export default {
     /* eslint-disable no-unused-vars */
     /* eslint-disable no-undef */
     mounted() {
+        // 할일 : makehuman에서 생성한 human모델을 obj파일로 저장 후 서버로 전송
         var app;
         // load some json data first
         var loadUrls = {

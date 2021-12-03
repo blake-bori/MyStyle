@@ -84,7 +84,6 @@
                                 </h3>
                                 <p>{{ productData.clothes.description }}</p>
                                 <div class="product__details__option">
-                                    <!-- 할일 : productData에 사이즈에 대한 옵션이 추가되면 수정 -->
                                     <div class="product__details__option__size">
                                         <span>Size:</span>
                                         <label for="xl">
