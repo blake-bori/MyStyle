@@ -59,11 +59,11 @@
                                             <div class="card-body">
                                                 <div class="shop__sidebar__categories">
                                                     <ul class="nice-scroll">
-                                                        <li><a @click="filter('All')">All</a></li>
-                                                        <li><a @click="filter('Men')">Men</a></li>
-                                                        <li><a @click="filter('Women')">Women</a></li>
-                                                        <li><a @click="filter('Top')">Top</a></li>
-                                                        <li><a @click="filter('Bottom')">Bottom</a></li>
+                                                        <li><a @click="filter('all')">All</a></li>
+                                                        <li><a @click="filter('men')">Men</a></li>
+                                                        <li><a @click="filter('women')">Women</a></li>
+                                                        <li><a @click="filter('top')">Top</a></li>
+                                                        <li><a @click="filter('bottom')">Bottom</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -143,12 +143,11 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="shop__product__option__right">
                                         <p class="mr-1">정렬 기준 :</p>
-                                        <select>
-                                            <option value=""> 인기순</option>
-                                            <option value=""> 낮은 가격순</option>
-                                            <option value=""> 높은 가격순</option>
+                                        <select v-model="sortIdx" @change="sortList">
+                                            <option v-for="opt in options" :key="opt.value" :value="opt.value">{{ opt.text }}</option>
                                         </select>
                                     </div>
+                                    {{ sortIdx }}
                                 </div>
                             </div>
                         </div>
@@ -167,7 +166,7 @@
                                     <div class="product__item__text">
                                         <h6>{{ product.name }}</h6>
                                         <a href="./detail" @click="goDetail(product.idx)" class="add-cart">상세정보</a>
-                                        <h5>{{ product.price }}</h5>
+                                        <h5>{{ product.price / 1000 }},000원</h5>
                                     </div>
                                 </div>
                             </div>
@@ -196,6 +195,12 @@ export default {
         return {
             //언제 불리는건지??
             page: 1,
+            sortIdx: 1, //0 : 인기순, 1 : 가격 낮은 순, 2 : 가격 높은 순
+            options: [
+                { value: 0, text: "인기순" },
+                { value: 1, text: "낮은 가격순" },
+                { value: 2, text: "높은 가격순" },
+            ],
         };
     },
     computed: {
@@ -204,11 +209,6 @@ export default {
         },
         shopProductList() {
             return this.$store.state.product.shopProducts;
-            // if (this.productLength > 12) {
-            //     return this.$store.state.product.shopProducts.slice(0 * this.page, Math.min(this.productLength, 12 * this.page - 1));
-            // } else {
-            //     return this.$store.state.product.shopProducts;
-            // }
         },
     },
     methods: {
@@ -217,6 +217,9 @@ export default {
         },
         filter(inputFilter) {
             this.$store.dispatch("getFilterData", inputFilter);
+        },
+        sortList() {
+            console.log(this.sortIdx);
         },
     },
 };

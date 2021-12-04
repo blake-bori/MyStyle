@@ -80,10 +80,10 @@
                                 <li :class="{ active: isMenuActive[1] }">
                                     <a href="./shop" @click="setCategory">Shop</a>
                                     <ul class="dropdown">
-                                        <li><a href="./shop" @click="setCategory('men')">Men</a></li>
-                                        <li><a href="./shop" @click="setCategory('women')">Women</a></li>
-                                        <li><a href="./shop" @click="setCategory('top')">Top</a></li>
-                                        <li><a href="./shop" @click="setCategory('bottom')">Bottom</a></li>
+                                        <li><a href="./shop" @click="setCategory">Men</a></li>
+                                        <li><a href="./shop" @click="setCategory">Women</a></li>
+                                        <li><a href="./shop" @click="setCategory">Top</a></li>
+                                        <li><a href="./shop" @click="setCategory">Bottom</a></li>
                                         <!-- <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
@@ -149,8 +149,8 @@ export default {
         requestSignOut() {
             this.$store.commit("requestLogout");
         },
-        setCategory(category) {
-            this.$store.commit("setCategory", category);
+        setCategory() {
+            this.$store.commit("setCategory");
         },
     },
 };

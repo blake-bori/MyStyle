@@ -47,7 +47,6 @@ export default {
         addProductData(state, productData) {
             console.log("mutation - addProductData 실행");
             state.productData = productData;
-            // 할일 : 서버로부터 받아온 obj파일이 CORS에 위배되어 오류 -> 해결방안 모색
             // state.productData.clothes.model = "object/human/test.obj";
 
             console.log(state.productData.clothes.name + "상품 정보 Load");
@@ -101,10 +100,11 @@ export default {
                 });
         },
         // 쇼핑 화면의 상품 정보 리스트 서버로부터 get방식으로 가져오기
-        getShopData(context) {
+        getShopData(context, filter) {
             console.log("action - getShopData 실행");
+            console.log(filter + "필터링 시도");
             shopApi
-                .shopContent()
+                .shopFilterContent(filter)
                 // 로드 성공 시
                 .then((response) => {
                     console.log("결과 : " + response.data.message);
@@ -121,7 +121,7 @@ export default {
         // 쇼핑 화면의 상품을 필터에 맞게 적용
         getFilterData(context, filter) {
             console.log("action - filterProduct 실행");
-            console.log("카테고리 : ", filter);
+            console.log(filter + "필터링 시도");
             shopApi
                 .shopFilterContent(filter)
 

@@ -14,7 +14,7 @@ export default {
         ShopComponent,
     },
     mounted() {
-        this.$store.dispatch("getShopData");
+        this.$store.dispatch("getShopData",this.$store.state.user.categoryIdx);
     },
 };
 </script>

@@ -12,7 +12,11 @@ export async function shopContent() {
 
 // 쇼핑화면 필터링(카테고리 등)적용해서 렌더시 필터링 해서 상품 리스트(정보) 가져옴
 export async function shopFilterContent(filter) {
-    return http.get("/app/shop?category=" + filter);
+    if (filter === "all") {
+        return http.get("/app/shop?category=");
+    } else {
+        return http.get("/app/shop?category=" + filter);
+    }
 }
 
 // 상품화면 렌더시 상품 정보를 가져옴

@@ -11,7 +11,7 @@ export default {
         },
         // 상품 화면에 나올 상품의 인덱스값
         productIdx: 0,
-        categoryIdx: 0,
+        categoryIdx: "all",
     }),
 
     getters: {},
@@ -66,7 +66,7 @@ export default {
             state.user.userName = myInfoData.userName;
         },
         setCategory(state, data) {
-            state.user.categoryIdx = data;
+            state.categoryIdx = data;
         },
     },
 

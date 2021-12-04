@@ -269,6 +269,8 @@ var App = (function(makehuman, _, THREE, Detector) {
         var subGroupData = this.app.modeling_sliders["Macro modelling"].modifiers["Macro"];
         // subGroupData 구성 : {Gender,Age,Muscle,Weight,Height,BodyProportions,African,Asian,caucasian}
 
+        var genderIndex = 0;
+
         bodySizeElement[0].addEventListener("change", function(e) {
             var slider = subGroupData[elementIndex[0]];
             var modifier = self.human.modifiers.children[slider.mod];
@@ -285,7 +287,6 @@ var App = (function(makehuman, _, THREE, Detector) {
 
             console.log(e.target.value);
 
-            var genderIndex;
             if (e.target.value < 0.5) {
                 genderIndex = 0;
             } else {
@@ -312,8 +313,13 @@ var App = (function(makehuman, _, THREE, Detector) {
             console.log(slider);
             console.log(modifier);
 
-            modifier.setValue(e.target.value);
-            modifier.updateValue();
+            if (genderIndex == 1) {
+                modifier.setValue(Math.min(0.6, 0.01 * (100.0 / 83) * (e.target.value - 140)));
+                modifier.updateValue();
+            } else {
+                modifier.setValue(Math.min(0.6, 0.01 * (100.0 / 83) * (e.target.value - 125)));
+                modifier.updateValue();
+            }
 
             console.log(e.target.value);
         });

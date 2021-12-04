@@ -167,7 +167,7 @@
                                                 <h5>상품 정보</h5>
                                                 <p>{{ productData.clothes.description }}</p>
                                             </div>
-                                            <div class="product__details__tab__content__item">
+                                            <div class="product__details__tab__content__item mb-5">
                                                 <h5>상품 정보2</h5>
                                                 <p>{{ productData.clothes.description }}</p>
                                             </div>
@@ -188,7 +188,7 @@
                                                     now that the newness is wearing off. For approximately $350.00, a new Pocket PC can now be purchased.
                                                 </p>
                                             </div>
-                                            <div class="product__details__tab__content__item">
+                                            <div class="product__details__tab__content__item mb-5">
                                                 <h5>Material used</h5>
                                                 <p>
                                                     Polyester is deemed lower quality due to its none natural quality’s. Made from synthetic materials, not natural like wool. Polyester suits become
@@ -211,7 +211,7 @@
         <!-- 상품과 비슷한 상품 -->
         <!-- Related Section Begin -->
         <!-- 할일 : 추천 시스템 혹은 미리 정해둔 로직에 따라 현재 페이지의 상품과 관련된 상품 정보를 같이 받아오도록 수정 -->
-        <section class="related spad">
+        <!-- <section class="related spad">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -287,7 +287,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Related Section End -->
     </div>
 </template>
@@ -311,17 +311,15 @@ export default {
                     clothes: {
                         clothesIdx: -1,
                         name: "",
+                        category: "",
+                        size: "",
+                        description: "",
                         price: "",
                         imgUrl: "",
-                        description: "",
                         model: "",
+                        isHot: false,
+                        gender: 1,
                     },
-                    size: [
-                        {
-                            sizeIdx: -1,
-                            sizeName: "",
-                        },
-                    ],
                 };
         },
         userIdx() {
