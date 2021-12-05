@@ -34,3 +34,8 @@ export async function addCart(userId, clothId, clothSize) {
 export async function purchase(userId, clothId, clothSize) {
     return http.post("/app/shop/purchase", { userIdx: userId, clothesIdx: clothId, size: clothSize });
 }
+
+// 쇼핑카트 화면에서 삭제 버튼 클릭 시
+export async function deleteItem(userId, clothId, clothSize) {
+    return http.patch("/app/shop/heart", { userIdx: userId, clothesIdx: clothId, size: clothSize });
+}

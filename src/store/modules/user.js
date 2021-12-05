@@ -9,6 +9,7 @@ export default {
             password: "",
             userName: "익명의 손",
         },
+        heartData: null,
         // 상품 화면에 나올 상품의 인덱스값
         productIdx: 0,
         categoryIdx: "all",
@@ -65,6 +66,13 @@ export default {
             state.user.userId = myInfoData.userId;
             state.user.userName = myInfoData.userName;
         },
+        addMyHeartList(state, myInfoData) {
+            console.log("mutation - addMyHeartList 실행");
+            console.log("받아온 List : ", myInfoData);
+
+            state.heartData = myInfoData;
+            // state.user.userName = myInfoData.userName;
+        },
         setCategory(state, data) {
             state.categoryIdx = data;
         },
@@ -117,7 +125,9 @@ export default {
                     console.log("코드 : " + response.data.code);
 
                     if (response.data.isSuccess) {
-                        context.commit("addMyInfoData", response.data.result[0]);
+                        context.commit("addMyInfoData", response.data.result.myinfo);
+
+                        context.commit("addMyHeartList", response.data.result.heartList);
                     } else {
                         // 로그인이 안되어있다면 로그인 필요하다는 알림과 함께 로그인 페이지로 이동
                         console.log("마이페이지 가져오기 실패");

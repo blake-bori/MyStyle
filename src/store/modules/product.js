@@ -58,6 +58,10 @@ export default {
             } else if (data.code == 2013) {
                 alert("로그인이 필요합니다.");
                 location.href = "./login";
+            }else if(data.code == 3007){
+                alert("찜하기는 4개까지 가능합니다.")
+            }else if(data.code == 3008){
+                alert("이미 찜한 옷입니다.")
             }
         },
         purchaseResult(state, data) {
@@ -168,6 +172,26 @@ export default {
                     console.log("코드 : " + response.data.code);
 
                     context.commit("addCartResult", response.data);
+                })
+                // 에러 발생 시
+                .catch((error) => {
+                    console.log("에러 : " + error);
+                });
+        },
+        deleteProduct(context, inputData) {
+            console.log("action - deleteProduct 실행");
+            // console.log("결과 : " + inputData[0]);
+            // console.log("결과 : " + inputData[1]);
+            // console.log("결과 : " + inputData[2]);
+
+            shopApi
+                .deleteItem(inputData[0], inputData[1], inputData[2])
+                // 찜하기 성공 시
+                .then((response) => {
+                    console.log("결과 : " + response.data.message);
+                    console.log("성공여부 : " + response.data.isSuccess);
+                    console.log("코드 : " + response.data.code);
+
                 })
                 // 에러 발생 시
                 .catch((error) => {

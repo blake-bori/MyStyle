@@ -31,38 +31,44 @@
                     </div>
                 </div>
 
-                <div class="sliders row product__filter" v-if="myHeartDataLength > 0">
-                    <div v-for="product in myHeartTopData" :key="product.heartIdx" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix top">
+                <div class="row product__filter">
+                    <div v-for="product in myHeartTopData" :key="product.clothesIdx + product.mysize" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix top">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" :style="{ backgroundImage: 'url(' + product.imgUrl + ')' }">
                                 <span class="label">Top</span>
                                 <ul class="product__hover">
                                     <li>
-                                        <a href="./detail" @click="goDetail(product.heartIdx)"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
+                                        <a href="/shopping_cart" @click="deleteItem(product.clothesIdx, product.mysize)"><img src="img/icon/delete.png" alt="" /><span>상품삭제</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="./detail" @click="goDetail(product.clothesIdx)"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6>{{ product.name }}</h6>
-                                <a href="javascript:void(0);" @click="putOn(product.heartIdx)" class="add-cart">입어보기</a>
-                                <h5>{{ product.price }}</h5>
+                                <h6>{{ product.name }} - {{ product.mysize }}</h6>
+                                <a href="javascript:void(0);" @click="putOn(product.clothesIdx)" class="add-cart">입어보기</a>
+                                <h5>{{ product.price }}</h5> 
                             </div>
                         </div>
                     </div>
 
-                    <div v-for="product in myHeartBottomData" :key="product.heartIdx" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix bottom">
+                    <div v-for="product in myHeartBottomData" :key="product.clothesIdx + product.mysize" class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix bottom">
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" :style="{ backgroundImage: 'url(' + product.imgUrl + ')' }">
                                 <span class="label">Bottom</span>
                                 <ul class="product__hover">
                                     <li>
-                                        <a href="./detail" @click="goDetail(product.heartIdx)"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
+                                        <a href="/shopping_cart" @click="deleteItem(product.clothesIdx, product.mysize)"><img src="img/icon/delete.png" alt="" /><span>상품삭제</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="./detail" @click="goDetail(product.clothesIdx)"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6>{{ product.name }}</h6>
-                                <a href="javascript:void(0);" @click="putOn(product.heartIdx)" class="add-cart">입어보기</a>
+                                <h6>{{ product.name }} - {{ product.mysize }}</h6>
+                                <a href="javascript:void(0);" @click="putOn(product.clothesIdx)" class="add-cart">입어보기</a>
                                 <h5>{{ product.price }}</h5>
                             </div>
                         </div>
@@ -102,7 +108,6 @@
                             <div class="product__item__text">
                                 <h6>Piqué Biker Jacket</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$67.24</h5>
                                 <div class="product__color__select">
                                     <label for="pc-4">
@@ -137,7 +142,6 @@
                             <div class="product__item__text">
                                 <h6>Multi-pocket Chest Bag</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$43.48</h5>
                                 <div class="product__color__select">
                                     <label for="pc-7">
@@ -171,7 +175,6 @@
                             <div class="product__item__text">
                                 <h6>Diagonal Textured Cap</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$60.9</h5>
                                 <div class="product__color__select">
                                     <label for="pc-10">
@@ -205,7 +208,6 @@
                             <div class="product__item__text">
                                 <h6>Lether Backpack</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$31.37</h5>
                                 <div class="product__color__select">
                                     <label for="pc-13">
@@ -240,7 +242,6 @@
                             <div class="product__item__text">
                                 <h6>Ankle Boots</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$98.49</h5>
                                 <div class="product__color__select">
                                     <label for="pc-16">
@@ -274,7 +275,6 @@
                             <div class="product__item__text">
                                 <h6>T-shirt Contrast Pocket</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$49.66</h5>
                                 <div class="product__color__select">
                                     <label for="pc-19">
@@ -308,7 +308,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -342,7 +341,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -376,7 +374,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -410,7 +407,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -444,7 +440,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -478,7 +473,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -512,7 +506,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -546,7 +539,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -580,7 +572,6 @@
                             <div class="product__item__text">
                                 <h6>Basic Flowing Scarf</h6>
                                 <a href="#" class="add-cart">+ Try it on </a>
-
                                 <h5>$26.28</h5>
                                 <div class="product__color__select">
                                     <label for="pc-22">
@@ -616,7 +607,7 @@
         <section class="spad3">
             <div class="container">
                 {{ myHeartRecommendDataLength }}
-                <div class="slick_slide row" v-if="myHeartRecommendDataLength > 0">
+                <div class="row slick_slide" v-if="myHeartRecommendDataLength > 0">
                     <div v-for="product in myHeartRecommendData" :key="product.clothesIdx" class="col-3">
                         <div class="cloth">
                             <img src="img/shopping-cart/cart-1.jpg" alt="" class="img-fluid" />
@@ -641,6 +632,10 @@ export default {
         goDetail(productIdx) {
             this.$store.commit("setProductIdx", productIdx);
         },
+        deleteItem(clothesIdx, clothesSize) {
+            this.$store.dispatch("deleteProduct", [this.userIdx, clothesIdx, clothesSize]);
+
+        }
     },
     components: {
         ModelShow,
@@ -657,11 +652,16 @@ export default {
         },
         myHeartDataLength() {
             if (this.myHeartTopData != null && this.myHeartBottomData != null) return this.myHeartTopData.length + this.myHeartBottomData.length;
+            else if(this.myHeartTopData == null && this.myHeartBottomData != null) return this.myHeartBottomData.length;
+            else if(this.myHeartTopData != null && this.myHeartBottomData == null) return this.myHeartTopData.length;
             else return 0;
         },
         myHeartRecommendDataLength() {
             if (this.myHeartRecommendData != null) return this.myHeartRecommendData.length;
             else return 0;
+        },
+        userIdx() {
+            return this.$store.state.user.user.userIdx;
         },
     },
 };

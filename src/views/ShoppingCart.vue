@@ -12,7 +12,7 @@ export default {
     components: {
         ShoppingCartComponent,
     },
-    mounted() {
+    created() {
         this.$store.dispatch("getHeartData", this.$store.state.user.user.userIdx);
     },
 };

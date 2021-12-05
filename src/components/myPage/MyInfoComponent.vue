@@ -35,20 +35,18 @@
                             <h4>{{ myInfoData.userName }}님의 정보</h4>
                             <p>ID : {{ myInfoData.userId }}</p>
                             <p>Name : {{ myInfoData.userName }}</p>
-                            <p>E-Mail : {{ myInfoData.userEmail }}</p>
-                            <p>Phone Number : {{ myInfoData.userPhoneNum }}</p>
                         </div>
-                        <div class="mt-2 float-right">정보 수정하러 가기</div>
+                        <div class="mt-2 float-right"><a class="gotoShopCart" href="#">정보 수정</a></div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="about__item">
-                            <h4>구매 목록</h4>
-                            <p>구매한 상품 - 1</p>
-                            <p>구매한 상품 - 2</p>
-                            <p>구매한 상품 - 3</p>
-                            <p>구매한 상품 - 4</p>
+                            <h4>나의 찜 목록</h4>
+                            <div v-for="product in myHeartList" :key="product.name+product.mysize">
+                                <p>{{ product.name }} - {{ product.mysize }}</p>
+                            </div>
+
                         </div>
-                        <div class="mt-2 float-right">바로 가기</div>
+                        <div class="mt-2 float-right"><a class="gotoShopCart" href="/shopping_cart">쇼핑 카트로 이동</a></div>
                     </div>
                 </div>
             </div>
@@ -207,6 +205,9 @@ export default {
     computed: {
         myInfoData() {
             return this.$store.state.user.user;
+        },
+        myHeartList() {
+            return this.$store.state.user.heartData;
         },
     },
 };
