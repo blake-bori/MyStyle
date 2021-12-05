@@ -112,12 +112,12 @@
                         v-for="product in homeProductList"
                         :key="product.idx"
                         class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix"
-                        :class="{ menList: '(product.gender==1||product.gender==3)', womenLIst: '(product.gender==1||product.gender==2)', hotProduct: 'product.isHot' }"
+                        :class="{ menList: product.gender == 1 || product.gender == 3, womenList: product.gender == 1 || product.gender == 2, hotProduct: product.isRecommend === 'T' }"
                     >
                         <!-- class에 sale넣으면 검정 라벨 흰글씨, 안넣으면 흰 라벨 검정글씨 -->
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" :style="{ backgroundImage: 'url(' + product.imgUrl + ')' }">
-                                <span v-if="product.isHot" class="label">Hot</span>
+                                <span v-if="product.isRecommend === 'T'" class="label">Hot</span>
                                 <ul class="product__hover">
                                     <li>
                                         <a href="./detail" @click="goDetail(product.idx)"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>

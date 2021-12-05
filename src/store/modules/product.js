@@ -32,6 +32,7 @@ export default {
 
             for (var product of homeProductList) {
                 state.homeProducts.push(product);
+                console.log(product);
             }
             console.log(state.homeProducts.length + "개의 상품 정보 Load");
         },
@@ -58,10 +59,10 @@ export default {
             } else if (data.code == 2013) {
                 alert("로그인이 필요합니다.");
                 location.href = "./login";
-            }else if(data.code == 3007){
-                alert("찜하기는 4개까지 가능합니다.")
-            }else if(data.code == 3008){
-                alert("이미 찜한 옷입니다.")
+            } else if (data.code == 3007) {
+                alert("찜하기는 4개까지 가능합니다.");
+            } else if (data.code == 3008) {
+                alert("이미 찜한 옷입니다.");
             }
         },
         purchaseResult(state, data) {
@@ -191,7 +192,6 @@ export default {
                     console.log("결과 : " + response.data.message);
                     console.log("성공여부 : " + response.data.isSuccess);
                     console.log("코드 : " + response.data.code);
-
                 })
                 // 에러 발생 시
                 .catch((error) => {
