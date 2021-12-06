@@ -288,14 +288,11 @@ export default {
                     clothes: {
                         clothesIdx: -1,
                         name: "",
-                        category: "",
-                        size: "",
                         description: "",
                         price: "",
                         imgUrl: "",
                         model: "",
-                        isHot: false,
-                        gender: 1,
+                        mtlfile: "",
                     },
                 };
         },

@@ -17,6 +17,9 @@ export default {
         heartBottomData: null,
         // 관련 상품 데이터
         relateData: null,
+
+        //최종 렌더할 모델 데이터
+        renderModelData: null,
     }),
     // getter는 computed와 같음
     // this.$store.state.변수명으로 state에 접근해서 사용
@@ -81,6 +84,10 @@ export default {
             state.relateData = data.recommend;
 
             console.log("상하의&관련 상품 정보 Load");
+        },
+        renderModel(state, data) {
+            console.log("mutation - renderModel 실행");
+            state.renderModelData = data;
         },
     },
     // actions는 async methods(비동기)와 같다
@@ -234,6 +241,30 @@ export default {
                         console.log("찜 목록 페이지 가져오기 실패");
                         alert("로그인 필요");
                         location.href = "./login";
+                    }
+                })
+                // 에러 발생 시 (예: 서버 닫힘)
+                .catch((error) => {
+                    console.log("에러 : " + error);
+                });
+        },
+        getHeartModel(context, data) {
+            console.log("action - getHeartModel 실행");
+            shopApi
+                .heartModel(data[0], data[1], data[2], data[3], data[4])
+                // 마이페이지 정보 가져오기
+                // isSuccess, code, message, result[{idx, userName, userId, email, phoneNum}] => 배열임
+                .then((response) => {
+                    console.log("최종 모델 가져오기 결과 : " + response.data.message);
+                    if (response.data.isSuccess) {
+                        console.log("결과 : " + response.data.message);
+                        console.log("성공여부 : " + response.data.isSuccess);
+                        console.log("코드 : " + response.data.code);
+
+                        context.commit("renderModel", response.data.result[0]);
+                    } else {
+                        // 로그인이 안되어있다면 로그인 필요하다는 알림과 함께 로그인 페이지로 이동
+                        console.log("최종 모델 가져오기 실패");
                     }
                 })
                 // 에러 발생 시 (예: 서버 닫힘)

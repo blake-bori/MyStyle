@@ -1,19 +1,20 @@
 <template>
-    <model-obj
+    <model-gltf
         :src="url"
         :controlsOptions="{
             enablePan,
             enableZoom,
             enableRotate,
         }"
+        backgroundColor="#E2E2E2"
     >
-    </model-obj>
+    </model-gltf>
 </template>
 <script>
-import { ModelObj } from "vue-3d-model";
+import { ModelGltf } from "vue-3d-model";
 export default {
     //example of object
-    components: { ModelObj },
+    components: { ModelGltf },
     props: {
         enablePan: Boolean,
         enableZoom: Boolean,

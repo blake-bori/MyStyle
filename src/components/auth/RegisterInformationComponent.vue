@@ -85,7 +85,6 @@ export default {
         nextStep() {
             // 비밀번호 확인 올바르게 입력 시 통과
             if (this.inputPsw1 === this.inputPsw2) {
-                alert("비번 같음");
                 this.$emit("next", [this.inputId, this.inputPsw1, this.inputName]);
             }
             // 비밀번호 확인 올바르지 않으면 다시 입력하도록 유도

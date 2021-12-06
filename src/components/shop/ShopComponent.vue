@@ -143,11 +143,10 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="shop__product__option__right">
                                         <p class="mr-1">정렬 기준 :</p>
-                                        <select v-model="sortIdx" @change="sortList">
+                                        <select v-model="sortIdx">
                                             <option v-for="opt in options" :key="opt.value" :value="opt.value">{{ opt.text }}</option>
                                         </select>
                                     </div>
-                                    {{ sortIdx }}
                                 </div>
                             </div>
                         </div>

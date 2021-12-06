@@ -5,7 +5,7 @@
         <section class="hero">
             <div class="hero__slider owl-carousel">
                 <!-- 프로모션 슬라이드 블록 -->
-                <div class="hero__items set-bg" data-setbg="img/hero/hero-main.jpg">
+                <div class="hero__items set-bg" data-setbg="img/hero/hero-main2.png">
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-5 col-lg-7 col-md-8">
@@ -13,7 +13,7 @@
                                     <!-- 신체 모델링관련 홍보로 신체 사이즈 측정 유도 -->
                                     <h6>마이스타일만의 특별한 첫번째 기능</h6>
                                     <h2>커스텀 마네킹</h2>
-                                    <p>자신의 체형과 매우 유사한 가상의 마네킹을 만들어<br />가상 피팅 시스템을 체험해보세요</p>
+                                    <p style="color:#ffffff">자신의 체형과 매우 유사한 가상의 마네킹을 만들어<br />가상 피팅 시스템을 체험해보세요</p>
                                     <a href="#" class="primary-btn">회원가입하러가기<span class="arrow_right"></span></a>
                                 </div>
                             </div>
@@ -403,6 +403,7 @@ export default {
         homeProductList() {
             return this.$store.state.product.homeProducts;
         },
+        
     },
     methods: {
         goDetail(productIdx) {

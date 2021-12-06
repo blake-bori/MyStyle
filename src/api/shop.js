@@ -39,3 +39,19 @@ export async function purchase(userId, clothId, clothSize) {
 export async function deleteItem(userId, clothId, clothSize) {
     return http.patch("/app/shop/heart", { userIdx: userId, clothesIdx: clothId, size: clothSize });
 }
+
+export async function heartModel(userId, topIdx, topSize, bottomIdx, bottomSize) {
+    // console.log(userId, topIdx, topSize, bottomIdx, bottomSize);
+    return http.post("/app/shop/model", {
+        userIdx: userId,
+        topIdx: topIdx,
+        topSize: topSize,
+        bottomIdx: bottomIdx,
+        bottomSize: bottomSize,
+        // userIdx: 5,
+        // topIdx: 1,
+        // topSize: "s",
+        // bottomIdx: 10,
+        // bottomSize: "s",
+    });
+}
