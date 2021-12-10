@@ -7,10 +7,14 @@
 <script>
 // @ is an alias to /src
 import ShopComponent from "@/components/shop/ShopComponent.vue";
+
 export default {
-    name: "Home",
+    name: "Shop",
     components: {
         ShopComponent,
+    },
+    mounted() {
+        this.$store.dispatch("getShopData",this.$store.state.user.categoryIdx);
     },
 };
 </script>

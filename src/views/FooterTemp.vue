@@ -9,10 +9,8 @@
                             <div class="footer__logo">
                                 <a href="#"><img src="img/footer-logo.png" alt=""/></a>
                             </div>
-                            <p>
-                                MyStyle is a shopping site where you can create a model that suits your body and try fitting clothes. <br />
-                                <br />
-                                Experience virtual fitting right now!
+                            <p>MyStyle is a shopping site where you can create a model that suits your body and try fitting clothes.
+                                <br> <br> Experience virtual fitting right now!
                             </p>
                             <!-- <a href="#"><img src="img/payment.png" alt=""></a> -->
                         </div>

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 현재 페이지 경로 -->
         <!-- Breadcrumb Section Begin -->
         <section class="breadcrumb-option">
             <div class="container">
@@ -18,6 +19,7 @@
         </section>
         <!-- Breadcrumb Section End -->
 
+        <!-- 로그인 영역 -->
         <!-- Checkout Section Begin -->
         <section class="checkout spad">
             <div class="container">
@@ -30,7 +32,7 @@
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>ID<span>*</span></p>
-                                            <input type="text" />
+                                            <input type="text" v-model="inputId" />
                                         </div>
                                     </div>
                                 </div>
@@ -38,18 +40,17 @@
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>Password<span>*</span></p>
-                                            <input type="password" />
+                                            <input type="password" v-model="inputPsw" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
-                                            <button type="submit" class="site-btn">LOGIN</button>
+                                            <button type="button" @click="requestLogin" class="site-btn">LOGIN</button>
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="coupon__code"></h6>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="checkout__order">
@@ -70,5 +71,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            inputId: "",
+            inputPsw: "",
+        };
+    },
+    methods: {
+        requestLogin() {
+            this.$store.dispatch("requestLogin", [this.inputId, this.inputPsw]);
+        },
+    },
+};
 </script>

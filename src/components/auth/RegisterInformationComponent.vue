@@ -28,30 +28,26 @@
                             <div class="col-lg-8 col-md-6">
                                 <h6 class="checkout__title"><span class="icon_contacts_alt"></span> Basic Information</h6>
                                 <div class="checkout__input">
+                                    <p>이름<span>*</span></p>
+                                    <input type="text" v-model="inputName" />
+                                </div>
+                                <div class="checkout__input">
                                     <p>ID<span>*</span></p>
-                                    <input type="text" />
+                                    <input type="text" v-model="inputId" />
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>비밀번호<span>*</span></p>
-                                            <input type="password" />
+                                            <input type="password" v-model="inputPsw1" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>비밀번호 확인<span>*</span></p>
-                                            <input type="password" />
+                                            <input type="password" v-model="inputPsw2" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="checkout__input">
-                                    <p>이름<span>*</span></p>
-                                    <input type="text" />
-                                </div>
-                                <div class="checkout__input">
-                                    <p>닉네임<span>*</span></p>
-                                    <input type="text" />
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
@@ -59,10 +55,9 @@
                                     <h4 class="order__title">Progress</h4>
                                     <div class="checkout__order__products font-weight-bold">Input <span>Clear?</span></div>
                                     <ul class="checkout__total__products">
+                                        <li>Name <span>No</span></li>
                                         <li>ID <span>No</span></li>
                                         <li>PSW <span>No</span></li>
-                                        <li>Name <span>No</span></li>
-                                        <li>Nickname <span>No</span></li>
                                     </ul>
                                     <div style="height:65px"></div>
                                     <button type="button" class="site-btn" @click="nextStep">Next Step</button>
@@ -80,16 +75,22 @@
 export default {
     data() {
         return {
-            id: null,
-            psw: null,
-            psw2: null,
-            name: "",
-            nickname: null,
+            inputId: "",
+            inputPsw1: "",
+            inputPsw2: "",
+            inputName: "",
         };
     },
     methods: {
         nextStep() {
-            this.$emit("next");
+            // 비밀번호 확인 올바르게 입력 시 통과
+            if (this.inputPsw1 === this.inputPsw2) {
+                this.$emit("next", [this.inputId, this.inputPsw1, this.inputName]);
+            }
+            // 비밀번호 확인 올바르지 않으면 다시 입력하도록 유도
+            else {
+                alert("비번 다름");
+            }
         },
     },
 };

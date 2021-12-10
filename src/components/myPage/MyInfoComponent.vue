@@ -8,8 +8,8 @@
                         <div class="breadcrumb__text">
                             <h4>About Us</h4>
                             <div class="breadcrumb__links">
-                                <a href="./index.html">Home</a>
-                                <a href="./index.html">My Page</a>
+                                <a href="./main">Home</a>
+                                <a href="./my_info">My Page</a>
                                 <span>My Information</span>
                             </div>
                         </div>
@@ -32,23 +32,21 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="about__item">
-                            <h4>XXX님의 정보</h4>
-                            <p>Name : XXX</p>
-                            <p>NickName : xxx</p>
-                            <p>E-Mail : email@email.com</p>
-                            <p>Phone Number : 010-xxx-xxxx</p>
+                            <h4>{{ myInfoData.userName }}님의 정보</h4>
+                            <p>ID : {{ myInfoData.userId }}</p>
+                            <p>Name : {{ myInfoData.userName }}</p>
                         </div>
-                        <div class="mt-2 float-right">정보 수정하러 가기</div>
+                        <div class="mt-2 float-right"><a class="gotoShopCart" href="#">정보 수정</a></div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="about__item">
-                            <h4>구매 목록</h4>
-                            <p>구매한 상품 - 1</p>
-                            <p>구매한 상품 - 2</p>
-                            <p>구매한 상품 - 3</p>
-                            <p>구매한 상품 - 4</p>
+                            <h4>나의 찜 목록</h4>
+                            <div v-for="product in myHeartList" :key="product.name+product.mysize">
+                                <p>{{ product.name }} - {{ product.mysize }}</p>
+                            </div>
+
                         </div>
-                        <div class="mt-2 float-right">바로 가기</div>
+                        <div class="mt-2 float-right"><a class="gotoShopCart" href="/shopping_cart">쇼핑 카트로 이동</a></div>
                     </div>
                 </div>
             </div>
@@ -169,8 +167,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="float-right">더보기</div>
             </div>
-            <div class="mr-5 float-right">더보기</div>
         </section>
         <!-- Team Section End -->
 
@@ -201,6 +199,16 @@
         <!-- Client Section End -->
     </div>
 </template>
+
 <script>
-export default {};
+export default {
+    computed: {
+        myInfoData() {
+            return this.$store.state.user.user;
+        },
+        myHeartList() {
+            return this.$store.state.user.heartData;
+        },
+    },
+};
 </script>

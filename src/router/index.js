@@ -1,20 +1,21 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 import Home from "../views/Home.vue";
 import Shop from "../views/Shop.vue";
 import Detail from "../views/Shop_Detail.vue";
 import MyInfo from "../views/MyInfo.vue";
+import ShoppingCart from "../views/ShoppingCart.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-import ShoppingCart from "../views/ShoppingCart.vue";
-
 
 Vue.use(VueRouter);
 
 const routes = [
     {
+        // 홈 화면은 "/" 또는 "/main"으로 접속 가능
+        path: "/",
         alias: ["/main"],
-        path:"/",
         name: "Home",
         component: Home,
     },
@@ -44,7 +45,7 @@ const routes = [
         component: MyInfo,
     },
     {
-        path: "/shoppingcart",
+        path: "/shopping_cart",
         name: "ShoppingCart",
         component: ShoppingCart,
     },
