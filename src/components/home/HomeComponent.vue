@@ -127,7 +127,7 @@
                             <div class="product__item__text">
                                 <h6>{{ product.name }}</h6>
                                 <a href="./detail" @click="goDetail(product.idx)" class="add-cart">상세정보</a>
-                                <h5>{{ product.price }}</h5>
+                                <h5>{{ product.price/1000 }},000원</h5>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <template>
-    <model-gltf v-if="modelSrc != null" :src="modelSrc.model" backgroundColor="#A9A9A9"> </model-gltf>
+    <model-gltf v-if="modelSrc != null" :src="modelSrc.model" backgroundColor="#E7E7E7"> </model-gltf>
 </template>
 <script>
 // import { ModelObj } from "vue-3d-model";

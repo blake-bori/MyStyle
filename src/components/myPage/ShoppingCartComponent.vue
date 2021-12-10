@@ -85,8 +85,12 @@
                     </div>
                 </div>
 
-                <p>현재 선택된 옷 idx : 상의({{ selectTopName }}-{{ selectTopSize }}), 하의({{ selectBottomName }}-{{ selectBottomSize }})</p>
-                <button type="button" @click="putOn" class="site-btn">입은 결과 확인</button>
+                <p style="font-size:25px; font-weight:bold; text-align:center">
+                    상의({{ selectTopName }}-{{ selectTopSize }}), 하의({{ selectBottomName }}-{{ selectBottomSize }})
+                </p>
+                <div class="row col-lg-2 m-auto">
+                    <button type="button" @click="putOn" class="site-btn">입은 결과 확인</button>
+                </div>
             </div>
         </section>
         <!-- Product Section End -->

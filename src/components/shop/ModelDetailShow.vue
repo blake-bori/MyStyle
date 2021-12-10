@@ -6,7 +6,7 @@
             enableZoom,
             enableRotate,
         }"
-        backgroundColor="#E2E2E2"
+        backgroundColor="#E7E7E7"
     >
     </model-gltf>
 </template>

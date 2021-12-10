@@ -79,7 +79,7 @@
                             <div class="product__details__text">
                                 <h4>{{ productData.clothes.name }}</h4>
                                 <h3>
-                                    {{ productData.clothes.price }}
+                                    {{ productData.clothes.price / 1000 }},000원
                                     <!-- <span>70.00</span> -->
                                 </h3>
                                 <p>{{ productData.clothes.description }}</p>
