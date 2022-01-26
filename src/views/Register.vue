@@ -23,7 +23,6 @@ export default {
             userId: "",
             userPsw: "",
             userName: "",
-            userBodysize: {},
         };
     },
     methods: {
@@ -37,9 +36,7 @@ export default {
             this.step -= 1;
         },
         register(inputBodySizeData) {
-            this.userBodySize = inputBodySizeData;
-
-            this.$store.dispatch("requestRegister", [this.userId, this.userPsw, this.userName, this.userBodySize]);
+            this.$store.dispatch("requestRegister", [this.userId, this.userPsw, this.userName, inputBodySizeData]);
         },
     },
 };

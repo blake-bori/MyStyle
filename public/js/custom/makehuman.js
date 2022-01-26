@@ -254,6 +254,8 @@ var App = (function(makehuman, _, THREE, Detector) {
         var bodyProportions = document.getElementById("bodysize_4");
         var bodyMuscle = document.getElementById("bodysize_5");
 
+        var download = document.getElementById("downloadBtn");
+
         // 0일때 여자, 1일때 남자 옷 적용
         var clothes = ["female_casualsuit01", "male_casualsuit06"];
         // 0일때 여자(포니테일), 1일때 남자(짧은 머리)
@@ -314,14 +316,12 @@ var App = (function(makehuman, _, THREE, Detector) {
             console.log(modifier);
 
             if (genderIndex == 1) {
-                modifier.setValue(Math.min(0.6, 0.01 * (100.0 / 83) * (e.target.value - 140)));
+                modifier.setValue(((e.target.value - 139) * 0.6) / 51);
                 modifier.updateValue();
             } else {
-                modifier.setValue(Math.min(0.6, 0.01 * (100.0 / 83) * (e.target.value - 125)));
+                modifier.setValue(((e.target.value - 125) * 0.6) / 50);
                 modifier.updateValue();
             }
-
-            console.log(e.target.value);
         });
 
         bodySizeElement[2].addEventListener("change", function(e) {
@@ -374,6 +374,11 @@ var App = (function(makehuman, _, THREE, Detector) {
 
             console.log(e.target.value);
         });
+
+        download.onclick = function() {
+            console.log("저장하기");
+            saveAs(new Blob([self.human.io.toObj()], { type: "text/plain;charset=utf-8" }), "test.obj");
+        };
     }
 
     return App;

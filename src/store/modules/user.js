@@ -98,6 +98,7 @@ export default {
                 });
         },
         requestRegister(context, data) {
+            console.log("action - requestRegister 실행");
             authApi
                 .register(data[0], data[1], data[2], data[3])
                 // 회원가입 결과

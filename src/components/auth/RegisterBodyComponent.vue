@@ -52,6 +52,8 @@
                                         근육량 <span>{{ bodySize.muscle }}</span>
                                     </div>
                                     <input id="bodysize_5" type="range" class="custom-range mb-4" min="0" max="1" step="0.01" v-model="bodySize.muscle" />
+                                    <button id="downloadBtn" type="button" class="site-btn">download</button>
+                                    <input type="file" @change="uploadFile()" ref="uploadModel" />
                                     <button type="button" class="site-btn" @click="requestRegister">Next Step</button>
                                 </div>
                             </div>
@@ -72,20 +74,23 @@ export default {
     },
     data() {
         return {
-            bodySize: { gender: 0, height: 160, weight: 0.5, proportions: 0.5, muscle: 0.5 },
+            bodySize: { gender: 0, height: 160, weight: 0.5, proportions: 0.5, muscle: 0.5, model: "" },
         };
     },
     methods: {
         previousStep() {
             this.$emit("back");
         },
-
+        uploadFile() {
+            this.bodySize.model = this.$refs.uploadModel.files[0];
+        },
         requestRegister() {
             this.bodySize.gender = parseFloat(this.bodySize.gender);
             this.bodySize.height = parseFloat(this.bodySize.height);
             this.bodySize.weight = parseFloat(this.bodySize.weight);
             this.bodySize.proportions = parseFloat(this.bodySize.proportions);
             this.bodySize.muscle = parseFloat(this.bodySize.muscle);
+
             this.$emit("requestRegister", this.bodySize);
         },
     },
