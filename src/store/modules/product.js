@@ -261,7 +261,7 @@ export default {
                         console.log("성공여부 : " + response.data.isSuccess);
                         console.log("코드 : " + response.data.code);
 
-                        context.commit("renderModel", response.data.result[0]);
+                        context.commit("renderModel", response.data.result);
                     } else {
                         // 로그인이 안되어있다면 로그인 필요하다는 알림과 함께 로그인 페이지로 이동
                         console.log("최종 모델 가져오기 실패");
