@@ -53,14 +53,6 @@
                                     <a v-show="user.userIdx != -1" @click="requestSignOut" href="#">Sign out</a>
                                     <a href="#">FAQs</a>
                                 </div>
-                                <!-- <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
-                            </div> -->
                             </div>
                         </div>
                     </div>
@@ -84,22 +76,15 @@
                                         <li><a href="./shop" @click="setCategory('women')">Women</a></li>
                                         <li><a href="./shop" @click="setCategory('top')">Top</a></li>
                                         <li><a href="./shop" @click="setCategory('bottom')">Bottom</a></li>
-                                        <!-- <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
                                 </li>
                                 <li :class="{ active: isMenuActive[2] }">
                                     <a href="#">My Page</a>
                                     <ul class="dropdown">
                                         <li><a href="./my_info">My Information</a></li>
-                                        <li><a href="./my_info">My Closet</a></li>
                                         <li><a href="./shopping_cart">Shopping Cart</a></li>
-                                        <!-- <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li> -->
                                     </ul>
                                 </li>
-                                <!-- <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li> -->
                             </ul>
                         </nav>
                     </div>
