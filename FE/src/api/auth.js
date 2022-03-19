@@ -1,31 +1,15 @@
 import http from "./http";
 
+// 로그인 요청 (post)
 export async function login(userId, userPsw) {
     return http.post("/app/users/login", { userId: userId, password: userPsw });
 }
 
-// export async function register(userId, userPsw, userName, userBodySize) {
-//     var gender = userBodySize.gender;
-//     var height = userBodySize.height;
-//     var weight = userBodySize.weight;
-//     var proportions = userBodySize.proportions;
-//     var muscle = userBodySize.muscle;
-
-//     return http.post("/app/users/", {
-//         userId: userId,
-//         password: userPsw,
-//         userName: userName,
-//         gender: gender,
-//         height: height,
-//         weight: weight,
-//         proportion: proportions,
-//         muscle: muscle,
-//     });
-// }
-
+// 회원가입 요청 (post)
 export async function register(userId, userPsw, userName, userBodySize) {
     const formData = new FormData();
 
+    // 폼 데이터에 입력한 정보 넣음
     formData.append("userId", userId);
     formData.append("password", userPsw);
     formData.append("userName", userName);
@@ -51,10 +35,12 @@ export async function register(userId, userPsw, userName, userBodySize) {
     });
 }
 
+// 마이페이지 정보 요청 (get)
 export async function myInfo(userIdx) {
     return http.get("/app/users/" + userIdx);
 }
 
+// 쇼핑카트 정보 요청 (get)
 export async function myHeart(userIdx) {
     return http.get("/app/users/" + userIdx + "/heart");
 }

@@ -21,9 +21,11 @@ export default {
         //최종 렌더할 모델 데이터
         renderModelData: null,
     }),
+
     // getter는 computed와 같음
     // this.$store.state.변수명으로 state에 접근해서 사용
     getters: {},
+
     // mutations는 methods와 같음
     // 첫번째 인자는 state(변수 저장소),두번째 인자로 payload로 함수에 쓰일 파라미터들을 전달 (payload말고 그냥 변수 써도됨 payload는 여러 변수의 집합 느낌?)
     // this.$store.commit("함수명",{변수 파라미터들})
@@ -39,6 +41,7 @@ export default {
             }
             console.log(state.homeProducts.length + "개의 상품 정보 Load");
         },
+        // 상품 페이지 데이터 가져와서 저장
         addShopData(state, shopProductList) {
             console.log("mutation - addShopData 실행");
             state.shopProducts = [];
@@ -48,6 +51,7 @@ export default {
             }
             console.log(state.shopProducts.length + "개의 상품 정보 Load");
         },
+        // 상품 정보 데이터 가져와서 저장
         addProductData(state, productData) {
             console.log("mutation - addProductData 실행");
             state.productData = productData;
@@ -55,6 +59,7 @@ export default {
 
             console.log(state.productData.clothes.name + "상품 정보 Load");
         },
+        // 상품 찜하기 결과 처리
         addCartResult(state, data) {
             console.log("mutation - addCartResult 실행");
             if (data.code == 1000) {
@@ -77,6 +82,7 @@ export default {
                 location.href = "./login";
             }
         },
+        // 쇼핑카트 페이지 데이터 가져와서 저장
         addMyHeart(state, data) {
             console.log("mutation - addMyHeart 실행");
             state.heartTopData = data.top;
@@ -90,6 +96,7 @@ export default {
             state.renderModelData = data;
         },
     },
+    
     // actions는 async methods(비동기)와 같다
     // this.$store.dispatch("함수명")
     actions: {
@@ -169,6 +176,7 @@ export default {
                     console.log("에러" + error);
                 });
         },
+        // 서버에 상품 찜하기 요청
         addCart(context, inputData) {
             console.log("action - addCart 실행");
             shopApi
@@ -186,12 +194,9 @@ export default {
                     console.log("에러 : " + error);
                 });
         },
+        // 서버에 찜한 상품 삭제 요청
         deleteProduct(context, inputData) {
             console.log("action - deleteProduct 실행");
-            // console.log("결과 : " + inputData[0]);
-            // console.log("결과 : " + inputData[1]);
-            // console.log("결과 : " + inputData[2]);
-
             shopApi
                 .deleteItem(inputData[0], inputData[1], inputData[2])
                 // 찜하기 성공 시
@@ -222,6 +227,7 @@ export default {
                     console.log("에러 : " + error);
                 });
         },
+        // 찜한 상품 리스트 정보(쇼핑카트 페이지) 요청
         getHeartData(context, userIdx) {
             console.log("action - getHeartData 실행");
             authApi
@@ -248,6 +254,7 @@ export default {
                     console.log("에러 : " + error);
                 });
         },
+        // 찜한 상품 입은 결과 모델 요청
         getHeartModel(context, data) {
             console.log("action - getHeartModel 실행");
             shopApi

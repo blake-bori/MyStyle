@@ -24,6 +24,7 @@ export default {
             console.log("productIdx값을 " + value + "로 바꿈");
             state.productIdx = value;
         },
+        // 로그인 결과 처리
         loginResult(state, data) {
             console.log("mutation - loginResult 실행");
             if (data.isSuccess) {
@@ -37,6 +38,7 @@ export default {
                 alert("로그인 실패");
             }
         },
+        // 회원가입 결과 처리
         registerResult(state, data) {
             console.log("mutation - registerResult 실행");
             if (data.isSuccess) {
@@ -46,6 +48,7 @@ export default {
                 alert("회원가입 실패");
             }
         },
+        // 로그아웃 처리
         requestLogout(state) {
             console.log("mutation - requestLogout 실행");
             console.log("로그아웃 후 유저 정보 초기화");
@@ -58,6 +61,7 @@ export default {
             alert("로그아웃");
             location.href = "./";
         },
+        // 마이페이지 정보(기본 정보) 가져와서 저장
         addMyInfoData(state, myInfoData) {
             console.log("mutation - addMyInfoData 실행");
             console.log("받아온 ID : ", myInfoData.userId);
@@ -66,6 +70,7 @@ export default {
             state.user.userId = myInfoData.userId;
             state.user.userName = myInfoData.userName;
         },
+        // 마이페이지 정보(찜한 목록) 가져와서 저장
         addMyHeartList(state, myInfoData) {
             console.log("mutation - addMyHeartList 실행");
             console.log("받아온 List : ", myInfoData);
@@ -73,12 +78,14 @@ export default {
             state.heartData = myInfoData;
             // state.user.userName = myInfoData.userName;
         },
+        // 상품 카테고리 id값 변경 (상품 카테고리 필터링 때 사용)
         setCategory(state, data) {
             state.categoryIdx = data;
         },
     },
 
     actions: {
+        // 서버에 로그인 요청
         requestLogin(context, inputData) {
             console.log("action - requestLogin 실행");
             authApi
@@ -97,6 +104,7 @@ export default {
                     console.log("에러 : " + error);
                 });
         },
+        // 서버에 회원가입 요청
         requestRegister(context, data) {
             console.log("action - requestRegister 실행");
             authApi
@@ -115,6 +123,7 @@ export default {
                     console.log("에러 : " + error);
                 });
         },
+        // 마이페이지 정보 요청
         getMyInfoData(context, userIdx) {
             authApi
                 .myInfo(userIdx)
