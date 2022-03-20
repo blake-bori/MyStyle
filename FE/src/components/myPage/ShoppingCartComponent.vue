@@ -103,27 +103,6 @@
                 <ModelShow />
             </div>
         </div>
-
-        <!-- 추천 상품 리스트 - 미구현 -->
-        <!-- Image Slider 3 Start -->
-        <!-- <div class="recommand_text">
-            <h5 style="font-size:25px;">Recommand</h5>
-        </div>
-        <section class="spad3">
-            <div class="container">
-                {{ myHeartRecommendDataLength }}
-                <div class="row slick_slide" v-if="myHeartRecommendDataLength > 0">
-                    <div v-for="product in myHeartRecommendData" :key="product.clothesIdx" class="col-3">
-                        <div class="cloth">
-                            <img src="img/shopping-cart/cart-1.jpg" alt="" class="img-fluid" />
-                            <h5>{{ product.name }}</h5>
-                            <p>{{ product.name }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- Image Slider 3 End -->
     </div>
 </template>
 
@@ -175,6 +154,7 @@ export default {
         },
     },
     components: {
+        // 캔버스에 그려질 모델 컴포넌트
         ModelShow,
     },
     computed: {
@@ -187,15 +167,19 @@ export default {
             return this.$store.state.product.heartBottomData;
         },
        
+       // 사용하는지 확인 필요
         myHeartRecommendData() {
             return this.$store.state.product.relateData;
         },
+        
         myHeartDataLength() {
             if (this.myHeartTopData != null && this.myHeartBottomData != null) return this.myHeartTopData.length + this.myHeartBottomData.length;
             else if (this.myHeartTopData == null && this.myHeartBottomData != null) return this.myHeartBottomData.length;
             else if (this.myHeartTopData != null && this.myHeartBottomData == null) return this.myHeartTopData.length;
             else return 0;
         },
+
+        // 사용하는지 확인 필요
         myHeartRecommendDataLength() {
             if (this.myHeartRecommendData != null) return this.myHeartRecommendData.length;
             else return 0;

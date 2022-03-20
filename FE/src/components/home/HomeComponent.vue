@@ -193,9 +193,11 @@ export default {
         
     },
     methods: {
+        // 디테일 페이지로 이동(상품 idx)
         goDetail(productIdx) {
             this.$store.commit("setProductIdx", productIdx);
         },
+        // 선택한 카테고리에 대한 상품 페이지로 이동
         setCategory(category) {
             this.$store.commit("setCategory", category);
         },
