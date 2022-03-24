@@ -26,6 +26,7 @@ export default {
     },
     methods: {},
     created() {
+        // userIdx가 -1이 아닌 값을 가지면(로그인 되어 있으면) 메인 화면으로 리다이렉팅시킨
         if (this.userIdx != -1) {
             location.href="./";
         }

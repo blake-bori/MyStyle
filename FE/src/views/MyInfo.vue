@@ -14,6 +14,7 @@ export default {
         MyInfoComponent,
     },
     mounted() {
+        // 페이지를 열 때 마이페이지 관련 데이터를 불러옴
         this.$store.dispatch("getMyInfoData", this.$store.state.user.user.userIdx);
     },
 };

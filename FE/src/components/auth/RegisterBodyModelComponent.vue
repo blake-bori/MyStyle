@@ -11,14 +11,15 @@ export default {
     /* eslint-disable no-unused-vars */
     /* eslint-disable no-undef */
     mounted() {
-        // 할일 : makehuman에서 생성한 human모델을 obj파일로 저장 후 서버로 전송
         var app;
-        // load some json data first
+        // makehuman-data 파일 내의 모델 신체 수치 데이터 불러오기
         var loadUrls = {
             modeling_sliders: "js/makehuman-data/src/json/sliders/modeling_sliders.json",
             resources: "js/makehuman-data/public/data/resources.json",
         };
         console.log(loadUrls);
+
+        // 불러온 신체 수치 데이터들을 mapping 시킴
         var loader = new THREE.XHRLoader();
         Promise.all(_.values(loadUrls).map((url) => new Promise((resolve, reject) => loader.load(url, (data) => resolve(JSON.parse(data))))))
             .then((data) => {
@@ -31,7 +32,7 @@ export default {
                 }
             })
             .then(() => {
-                // start the app
+                // 모델 띄우는 화면 렌더
                 resources.baseUrl = "js/makehuman-data/public/data/";
                 app = new App(resources, modeling_sliders);
                 app.init();
