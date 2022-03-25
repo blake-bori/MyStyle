@@ -81,6 +81,7 @@ export default {
         previousStep() {
             this.$emit("back");
         },
+        // 모델 파일(zip형태로 압축 후) 서버로 업로드
         uploadFile() {
             this.bodySize.model = this.$refs.uploadModel.files[0];
         },
