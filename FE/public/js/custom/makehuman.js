@@ -183,13 +183,6 @@ var App = (function(makehuman, _, THREE, Detector) {
         this.human.modifiers.children["macrodetails/Gender"].setValue(0);
         this.human.modifiers.children["macrodetails-proportions/BodyProportions"].setValue(0.5);
         this.human.modifiers.children["macrodetails-height/Height"].setValue(0.5);
-
-        // set some modifier buttons
-        // 기본값에 맞게 gui의 값을 변경
-        // var macroControllers = this.gui.gui.__folders.Modifiers.__folders["Macro modelling"].__folders.Macro.__controllers;
-        // macroControllers.find((c) => c.property == "Gender").setValue(0);
-        // macroControllers.find((c) => c.property == "Proportions").setValue(0.5);
-        // macroControllers.find((c) => c.property == "Height").setValue(0.5);
     };
 
     //화면 크기 변경 시 캔버스 사이즈 변경 (반응형 디자인)
@@ -273,6 +266,7 @@ var App = (function(makehuman, _, THREE, Detector) {
 
         var genderIndex = 0;
 
+        // 성별 슬라이더바 변경시 모델 성별 변경
         bodySizeElement[0].addEventListener("change", function(e) {
             var slider = subGroupData[elementIndex[0]];
             var modifier = self.human.modifiers.children[slider.mod];
@@ -303,7 +297,8 @@ var App = (function(makehuman, _, THREE, Detector) {
 
             self.human.setSkin(skins[genderIndex]);
         });
-
+        
+        // 키 슬라이더바 변경시 모델 키값 변경
         bodySizeElement[1].addEventListener("change", function(e) {
             var slider = subGroupData[elementIndex[1]];
             var modifier = self.human.modifiers.children[slider.mod];
@@ -314,7 +309,8 @@ var App = (function(makehuman, _, THREE, Detector) {
 
             console.log(slider);
             console.log(modifier);
-
+            
+            // 같은 수치라도 성별에 따라 실제 값이 달라져 성별에 맞게 키값 계산
             if (genderIndex == 1) {
                 modifier.setValue(((e.target.value - 139) * 0.6) / 51);
                 modifier.updateValue();
@@ -324,6 +320,7 @@ var App = (function(makehuman, _, THREE, Detector) {
             }
         });
 
+        // 몸무게 슬라이더바 변경시 모델 몸무게 변경
         bodySizeElement[2].addEventListener("change", function(e) {
             var slider = subGroupData[elementIndex[2]];
             var modifier = self.human.modifiers.children[slider.mod];
@@ -341,6 +338,7 @@ var App = (function(makehuman, _, THREE, Detector) {
             console.log(e.target.value);
         });
 
+        // 비율 슬라이더바 변경
         bodySizeElement[3].addEventListener("change", function(e) {
             var slider = subGroupData[elementIndex[3]];
             var modifier = self.human.modifiers.children[slider.mod];
@@ -358,6 +356,7 @@ var App = (function(makehuman, _, THREE, Detector) {
             console.log(e.target.value);
         });
 
+        // 근육량 슬라이더바 변경
         bodySizeElement[4].addEventListener("change", function(e) {
             var slider = subGroupData[elementIndex[4]];
             var modifier = self.human.modifiers.children[slider.mod];
@@ -375,6 +374,7 @@ var App = (function(makehuman, _, THREE, Detector) {
             console.log(e.target.value);
         });
 
+        // 다운로드 버튼 클릭 시 해당 모델이 obj 확장자 파일로 저장됨
         download.onclick = function() {
             console.log("저장하기");
             saveAs(new Blob([self.human.io.toObj()], { type: "text/plain;charset=utf-8" }), "test.obj");

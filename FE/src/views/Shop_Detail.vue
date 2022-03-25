@@ -14,6 +14,7 @@ export default {
         ShopDetailComponent,
     },
     created() {
+        // 상품 정보 페이지 열 때 해당 정보를 불러옴
         this.$store.dispatch("getProductData", this.$store.state.user.productIdx);
     },
 };

@@ -14,6 +14,7 @@ export default {
         ShopComponent,
     },
     mounted() {
+        // 쇼핑 페이지를 열 때 상품 리스트 정보 필터링 인덱스를 통해 불러옴
         this.$store.dispatch("getShopData",this.$store.state.user.categoryIdx);
     },
 };

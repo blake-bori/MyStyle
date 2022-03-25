@@ -12,5 +12,6 @@ export default new Vuex.Store({
         user: user,
         product: product,
     },
+    // 새로고침 시 유저 idx 등 지워지면 안되는 user store를 설정
     plugins: [createPersistedState({ paths: ["user"] })],
 });

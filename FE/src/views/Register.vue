@@ -26,6 +26,7 @@ export default {
         };
     },
     methods: {
+        // 다음 단계로 넘어갈 때 해당 단계의 입력 정보를 저장
         nextStep(inputInfoData) {
             this.userId = inputInfoData[0];
             this.userPsw = inputInfoData[1];
@@ -35,6 +36,7 @@ export default {
         previousStep() {
             this.step -= 1;
         },
+        // 회원가입 요청
         register(inputBodySizeData) {
             this.$store.dispatch("requestRegister", [this.userId, this.userPsw, this.userName, inputBodySizeData]);
         },

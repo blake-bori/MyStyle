@@ -166,24 +166,6 @@ export default {
         myHeartBottomData() {
             return this.$store.state.product.heartBottomData;
         },
-       
-       // 사용하는지 확인 필요
-        myHeartRecommendData() {
-            return this.$store.state.product.relateData;
-        },
-        
-        myHeartDataLength() {
-            if (this.myHeartTopData != null && this.myHeartBottomData != null) return this.myHeartTopData.length + this.myHeartBottomData.length;
-            else if (this.myHeartTopData == null && this.myHeartBottomData != null) return this.myHeartBottomData.length;
-            else if (this.myHeartTopData != null && this.myHeartBottomData == null) return this.myHeartTopData.length;
-            else return 0;
-        },
-
-        // 사용하는지 확인 필요
-        myHeartRecommendDataLength() {
-            if (this.myHeartRecommendData != null) return this.myHeartRecommendData.length;
-            else return 0;
-        },
         // 로그인 중인 유저의 index를 가져옴
         userIdx() {
             return this.$store.state.user.user.userIdx;
