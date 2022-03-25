@@ -1,4 +1,4 @@
-//Response로 보내줄 상태코드와 메세지 등을 이 파일에서 관리함
+//Response로 보내줄 에러 메세지 및 상태코드와 메세지
 
 module.exports = {
 
