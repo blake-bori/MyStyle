@@ -1,0 +1,10 @@
+.idea/*
+node_modules/*
+package-lock.json
+log/*
+.DS_Store
+/config/database.js
+/config/awsConfig.js
+/config/express.js
+/config/s3.js
+/config/secret.js
