@@ -45,7 +45,7 @@
                         <!-- 썸네일 클릭시 메인 이미지로 보임 -->
                         <div class="col-lg-6 col-md-9">
                             <div class="tab-content">
-                                <div class="tab-pane active" id="tabs-1" role="tabpanel">ㄹ
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                     <div class="product__details__pic__item" style="display:inline-block; border: 1px solid black; width:400px; height:500px">
                                         <ModelDetailShow :url="productData.clothes.model" :enablePan="trueVal" :enableZoom="trueVal" :enableRotate="trueVal" />
                                     </div>
