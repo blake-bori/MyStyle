@@ -1,5 +1,4 @@
 
-// 새롭게 추가한 함수를 아래 부분에서 export 해줘야 외부의 Provider, Service 등에서 사용가능합니다.
 
 // 모든 유저 조회
 async function selectUser(connection, userId) {
@@ -11,6 +10,7 @@ async function selectUser(connection, userId) {
   return userRows;
 }
 
+// 유저가 좋아요한 상의 목록 조회
 async function selectUserHeartTopList(connection, userIdx) {
   const selectUserListQuery = `
     select distinct clothesIdx, name, mysize, imgUrl, concat(format(price, 0), '원') as price
@@ -21,6 +21,7 @@ async function selectUserHeartTopList(connection, userIdx) {
   return userRows;
 }
 
+// 유저가 좋아요한 목록 조회
 async function selectUserHeartList(connection, userIdx) {
   const selectUserListQuery = `
     select name, mysize
@@ -31,6 +32,7 @@ async function selectUserHeartList(connection, userIdx) {
   return userRows;
 }
 
+// 유저가 좋아요한 하의 목록 조회
 async function selectUserHeartBottomList(connection, userIdx) {
   const selectUserListQuery = `
     select distinct clothesIdx, name, mysize, imgUrl, concat(format(price, 0), '원') as price
@@ -41,6 +43,7 @@ async function selectUserHeartBottomList(connection, userIdx) {
   return userRows;
 }
 
+// 유저 추천 리스트 조회
 async function selectUserRecommendList(connection, userIdx) {
   const selectUserListQuery = `
     select idx as clothesIdx, name
@@ -73,6 +76,7 @@ async function selectUserId(connection, userId) {
   return userRow;
 }
 
+// 유저 정보 조회
 async function selectUserInfo(connection, userIdx) {
   const selectUserIdQuery = `
     select idx as userIdx, userName, userId, email,
@@ -84,7 +88,7 @@ async function selectUserInfo(connection, userIdx) {
   return userRow;
 }
 
-// userId 회원 조회
+// userId 회원 존재하는지 확인
 async function selectUserExist(connection, userId) {
   const selectUserIdQuery = `
     select userId
@@ -119,7 +123,7 @@ async function insertUserInfo(connection, insertUserInfoParams) {
   return insertUserInfoRow;
 }
 
-// 유저 생성
+// 유저 생성(사이즈 정보 입력)
 async function insertUserSizeInfo(connection, insertUserInfoParams) {
   const insertUserSizeInfoQuery = `
         INSERT INTO UserSize(userIdx, gender, height, weight, proportion, muscle)
@@ -133,7 +137,7 @@ async function insertUserSizeInfo(connection, insertUserInfoParams) {
   return insertUserSizeInfoRow;
 }
 
-
+// 유저 모델 입력
 async function insertUsermodel(connection, params) {
   const insertUserSizeInfoQuery = `
     UPDATE UserSize
@@ -175,6 +179,7 @@ async function selectUserAccount(connection, userId) {
   return selectUserAccountRow[0];
 }
 
+// 유저 정보 수정
 async function updateUserInfo(connection, id, userName) {
   const updateUserQuery = `
   UPDATE UserInfo 
