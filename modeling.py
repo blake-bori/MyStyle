@@ -1,5 +1,6 @@
 import bpy
 import sys
+# 사람 모델에 요청한 상의, 하의를 입힌 결과값 
 
 # scene 내의 모든 오브젝트 삭제
 bpy.ops.object.select_all(action="SELECT")
