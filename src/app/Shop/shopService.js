@@ -223,3 +223,4 @@ exports.updateHeartStatusByIdx = async function (userIdx, clothesIdx, size) {
         logger.error(`App - updateHeartStatus Service error\n: ${err.message}`);
         return errResponse(baseResponse.DB_ERROR);
     }
+}
