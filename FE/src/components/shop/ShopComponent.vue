@@ -192,7 +192,6 @@
 export default {
     data() {
         return {
-            //언제 불리는건지??
             page: 1,
             sortIdx: 1, //0 : 인기순, 1 : 가격 낮은 순, 2 : 가격 높은 순
             options: [
@@ -203,14 +202,17 @@ export default {
         };
     },
     computed: {
+        //shopproduct에 담긴 옷들의 개수
         productLength() {
             return this.$store.state.product.shopProducts.length;
         },
+        //shopproduct에 담긴 옷들의 리스트
         shopProductList() {
             return this.$store.state.product.shopProducts;
         },
     },
     methods: {
+        // 디테일 페이지 이동
         goDetail(productIdx) {
             this.$store.commit("setProductIdx", productIdx);
         },

@@ -46,7 +46,6 @@
                         <div class="col-lg-6 col-md-9">
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                    <!-- 할일 : 3D모델이 active된 상태에서 화면이 렌더되어야 3D모델이 보이는데 이유 찾아보기 -->
                                     <div class="product__details__pic__item" style="display:inline-block; border: 1px solid black; width:400px; height:500px">
                                         <ModelDetailShow :url="productData.clothes.model" :enablePan="trueVal" :enableZoom="trueVal" :enableRotate="trueVal" />
                                     </div>
@@ -184,88 +183,6 @@
             </div>
         </section>
         <!-- Shop Details Section End -->
-
-        <!-- 상품과 비슷한 상품 -->
-        <!-- Related Section Begin -->
-        <!-- 할일 : 추천 시스템 혹은 미리 정해둔 로직에 따라 현재 페이지의 상품과 관련된 상품 정보를 같이 받아오도록 수정 -->
-        <!-- <section class="related spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="related-title">관련 상품</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                                <span class="label">New</span>
-                                <ul class="product__hover">
-                                    <li>
-                                        <a href="#"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">상세정보</a>
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                <ul class="product__hover">
-                                    <li>
-                                        <a href="#"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">상세정보</a>
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                        <div class="product__item sale">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                                <span class="label">Sale</span>
-                                <ul class="product__hover">
-                                    <li>
-                                        <a href="#"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">상세정보</a>
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
-                                <ul class="product__hover">
-                                    <li>
-                                        <a href="#"><img src="img/icon/search.png" alt="" /><span>상세정보</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Diagonal Textured Cap</h6>
-                                <a href="#" class="add-cart">상세정보</a>
-                                <h5>$60.9</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- Related Section End -->
     </div>
 </template>
 
@@ -281,6 +198,7 @@ export default {
         };
     },
     computed: {
+	// productData가 있을때 해당 값을 리턴, 없으면 초기값 리턴
         productData() {
             if (this.$store.state.product.productData != null) return this.$store.state.product.productData;
             else
@@ -296,15 +214,17 @@ export default {
                     },
                 };
         },
+	// 현재 접속중인 유저의 ID 가져오기
         userIdx() {
             return this.$store.state.user.user.userIdx;
         },
     },
     methods: {
+	// 쇼핑카트에 담기
         requestAddCart() {
             this.$store.dispatch("addCart", [this.userIdx, this.productData.clothes.clothesIdx, this.clothSizeValues]);
         },
-
+	// 구매하기
         requestPurchase() {
             this.$store.dispatch("purchase", [this.userIdx, this.productData.clothes.clothesIdx, this.clothSizeValues]);
         },
