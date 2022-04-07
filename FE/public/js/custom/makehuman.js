@@ -373,12 +373,12 @@ var App = (function(makehuman, _, THREE, Detector) {
 
             console.log(e.target.value);
         });
+    }
 
-        // 다운로드 버튼 클릭 시 해당 모델이 obj 확장자 파일로 저장됨
-        download.onclick = function() {
-            console.log("저장하기");
-            saveAs(new Blob([self.human.io.toObj()], { type: "text/plain;charset=utf-8" }), "test.obj");
-        };
+    App.prototype.printModel = function() {
+        var file=new Blob([self.human.io.toObj()], { type: "text/plain;charset=utf-8" });
+
+        return file;
     }
 
     return App;

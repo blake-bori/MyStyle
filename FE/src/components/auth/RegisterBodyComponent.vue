@@ -52,12 +52,12 @@
                                         근육량 <span>{{ bodySize.muscle }}</span>
                                     </div>
                                     <input id="bodysize_5" type="range" class="custom-range mb-4" min="0" max="1" step="0.01" v-model="bodySize.muscle" />
-                                    <button id="downloadBtn" type="button" class="site-btn">download</button>
-                                    <input type="file" @change="uploadFile()" ref="uploadModel" />
                                     <button type="button" class="site-btn" @click="requestRegister">Next Step</button>
                                 </div>
                             </div>
-                            <RegisterBodyModelComponent class="col-lg-8 col-md-6"></RegisterBodyModelComponent>
+                            <div class="model-canvas" style="border :1px black solid">
+                                <div id="body_model_canvas"></div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -67,23 +67,19 @@
     </div>
 </template>
 <script>
-import RegisterBodyModelComponent from "@/components/auth/RegisterBodyModelComponent.vue";
 export default {
     components: {
-        RegisterBodyModelComponent,
     },
     data() {
         return {
+            sampleModel:"",
             bodySize: { gender: 0, height: 160, weight: 0.5, proportions: 0.5, muscle: 0.5, model: "" },
+            app:null,
         };
     },
     methods: {
         previousStep() {
             this.$emit("back");
-        },
-        // 모델 파일(zip형태로 압축 후) 서버로 업로드
-        uploadFile() {
-            this.bodySize.model = this.$refs.uploadModel.files[0];
         },
         requestRegister() {
             this.bodySize.gender = parseFloat(this.bodySize.gender);
@@ -91,9 +87,40 @@ export default {
             this.bodySize.weight = parseFloat(this.bodySize.weight);
             this.bodySize.proportions = parseFloat(this.bodySize.proportions);
             this.bodySize.muscle = parseFloat(this.bodySize.muscle);
+            this.bodySize.model=this.app.printModel();
 
             this.$emit("requestRegister", this.bodySize);
         },
     },
+    mounted(){
+        /* eslint-disable no-unused-vars */
+        /* eslint-disable no-undef */
+        // makehuman-data 파일 내의 모델 신체 수치 데이터 불러오기
+        var loadUrls = {
+            modeling_sliders: "js/makehuman-data/src/json/sliders/modeling_sliders.json",
+            resources: "js/makehuman-data/public/data/resources.json",
+        };
+        console.log(loadUrls);
+
+        // 불러온 신체 수치 데이터들을 mapping 시킴
+        var loader = new THREE.XHRLoader();
+        Promise.all(_.values(loadUrls).map((url) => new Promise((resolve, reject) => loader.load(url, (data) => resolve(JSON.parse(data))))))
+            .then((data) => {
+                var keys = Object.keys(loadUrls);
+                console.log(keys);
+                console.log(data);
+                for (var i = 0; i < keys.length; i++) {
+                    var key = keys[i];
+                    window[key] = data[i];
+                }
+            })
+            .then(() => {
+                // 모델 띄우는 화면 렌더
+                resources.baseUrl = "js/makehuman-data/public/data/";
+                this.app = new App(resources, modeling_sliders);
+                this.app.init();
+                this.app.animate();
+            });
+    }
 };
 </script>
