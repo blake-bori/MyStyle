@@ -12,8 +12,8 @@ Is it hard to choose the size of clothes on the online shopping mall?
 Users create a virtual 3D model similar to themselves through entering their body size, and then experience wearing it themselves by putting on the clothes they want.
 
 <div style="float-left">
-  <img src="https://user-images.githubusercontent.com/76082792/166139682-c44c4154-de93-4fec-a8a6-d6fbd4ac59d3.gif" width="48%" height="400"/>
-  <img src="https://user-images.githubusercontent.com/76082792/166139696-07b26aba-4acc-443a-b955-ca70e5b01b13.gif" width="48%" height="400"/>
+  <img src="https://user-images.githubusercontent.com/76082792/166139682-c44c4154-de93-4fec-a8a6-d6fbd4ac59d3.gif" width="48%" height="350"/>
+  <img src="https://user-images.githubusercontent.com/76082792/166139696-07b26aba-4acc-443a-b955-ca70e5b01b13.gif" width="48%" height="350"/>
 </div>
 
 
@@ -24,9 +24,10 @@ Users create a virtual 3D model similar to themselves through entering their bod
 
 
 ## Used Library & Tools
-![front](https://user-images.githubusercontent.com/78682585/145704111-1d440b95-41ec-4d4c-b617-a9001cc78e94.PNG)
-![back](https://user-images.githubusercontent.com/78682585/145704115-e8a33fbf-dd5a-4c79-ac2b-5b2014be9f38.PNG)
-
+<div style="float-left">
+  <img src="https://user-images.githubusercontent.com/78682585/145704111-1d440b95-41ec-4d4c-b617-a9001cc78e94.PNG" width="48%" height="330"/>
+  <img src="https://user-images.githubusercontent.com/78682585/145704115-e8a33fbf-dd5a-4c79-ac2b-5b2014be9f38.PNG" width="48%" height="330"/>
+</div>
 
 ## Team Member
 * 201734377 홍세연 (bbbbbb@gachon.ac.kr)
