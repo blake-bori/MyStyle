@@ -125,14 +125,6 @@ exports.postUsers = async function (req, res) {
     var file = req.files.uploadFile;
     console.log(file)
 
-    // 받아온 zip파일 서버에 저장.
-    fs.writeFile(file.name, file.data, (err)=>{
-        if (err) {
-            console.log(err)
-            return res.send(response(baseResponse.SIGNUP_WRITE_MODEL_ERROR));
-        }
-    });
-
     // 유저 회원가입 처리
     const signUpResponseIdx = await userService.createUser(
         userId, password, userName
@@ -147,18 +139,14 @@ exports.postUsers = async function (req, res) {
     let usermodelUrl;
     var target = 'user' + signUpResponseIdx;
     const path = './user'+signUpResponseIdx;
-
-    // zip 압축 해제 후 서버 내 유저 디렉토리에 저장
-    fs.createReadStream(file.name)
-        .pipe(unzipper.Extract({path:target}));
-
-
-    // 서버 용량의 효율을 위해 zip 파일 삭제해놓기
-    fs.unlink(file.name, err => {
-        if(err){
-            console.log("파일 삭제 Error 발생");
+    
+    // 가져온 파일 저장 user+userIdx 형식으로 파일 이름 변경
+    var filename = 'user' + signUpResponseIdx+'.obj';
+    fs.writeFile(filename, file.data, (err)=>{
+        if (err) {
             console.log(err)
         }
+        console.log('파일 저장함')
     });
 
     // signUpResponse 값을 json으로 전달
