@@ -44,5 +44,5 @@ Users create a virtual 3D model similar to themselves through entering their bod
 * 201935117 임수이 (sylim9387@naver.com)
 
 
-## For more information
+## Build information
 * [Go to Wiki](https://github.com/sswon314/MyStyle/wiki)
