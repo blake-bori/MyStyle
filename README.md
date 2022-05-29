@@ -17,7 +17,7 @@ Users create a virtual 3D model similar to themselves through entering their bod
 </div>
 
 
-## Build information
+## Build
 * [Go to Wiki](https://github.com/sswon314/MyStyle/wiki/How-to-use)
 
 
