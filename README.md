@@ -20,14 +20,23 @@ Users create a virtual 3D model similar to themselves through entering their bod
 ## Key Feature
 * Easy UI
 * Easily create user body model using scroll bar
-* User can check the fit and combination of clothes.
+* User can check the fit and combination of clothes
 
 
 ## Used Library & Tools
-<div style="float-left">
-  <img src="https://user-images.githubusercontent.com/78682585/145704111-1d440b95-41ec-4d4c-b617-a9001cc78e94.PNG" width="48%" height="330"/>
-  <img src="https://user-images.githubusercontent.com/78682585/145704115-e8a33fbf-dd5a-4c79-ac2b-5b2014be9f38.PNG" width="48%" height="330"/>
-</div>
+### 1. Front-End
+  Vue.js based webpage
+  > Using HTML template, webpage was constructed by converting it into vue format
+
+  Open source
+  > Using open source MakeHuman, axios, 3d viewer
+
+### 2. Back-End
+  EC2 + MySQL + node.js
+  > Use AWS Elastic Compute Cloud AWS EC2 to build server <br>
+  > Manage database using MySQL <br>
+  > Use node.js + Express as server framework <br>
+
 
 ## Team Member
 * 201734377 홍세연 (bbbbbb@gachon.ac.kr)
