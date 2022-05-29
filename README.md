@@ -45,4 +45,4 @@ Users create a virtual 3D model similar to themselves through entering their bod
 
 
 ## Build information
-* [Go to Wiki](https://github.com/sswon314/MyStyle/wiki)
+* [Go to Wiki](https://github.com/sswon314/MyStyle/wiki/How-to-use)
