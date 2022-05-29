@@ -17,6 +17,10 @@ Users create a virtual 3D model similar to themselves through entering their bod
 </div>
 
 
+## Build information
+* [Go to Wiki](https://github.com/sswon314/MyStyle/wiki/How-to-use)
+
+
 ## Key Feature
 * Easy UI
 * Easily create user body model using scroll bar
@@ -42,7 +46,3 @@ Users create a virtual 3D model similar to themselves through entering their bod
 * 201734377 홍세연 (bbbbbb@gachon.ac.kr)
 * 201735859 이상원 (sswon314@naver.com)
 * 201935117 임수이 (sylim9387@naver.com)
-
-
-## Build information
-* [Go to Wiki](https://github.com/sswon314/MyStyle/wiki/How-to-use)
